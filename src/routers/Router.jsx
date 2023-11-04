@@ -1,18 +1,19 @@
 import {
     createBrowserRouter,
 } from "react-router-dom";
-import App from "../App";
+// import App from "../App";
+import MainLayout from "../layouts/MainLayout/MainLayout";
+import Home from './../pages/Home/Home';
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <App></App>,
+        element: <MainLayout></MainLayout>,
         // error// element: <Error></Error>,
         children: [
             {
                 path: "/",
-                loader: () => fetch('/eventData.json'),
-                // element: <Home></Home>,
+                element: <Home></Home>,
                 // error// element: <Error></Error>,
             },
             {
