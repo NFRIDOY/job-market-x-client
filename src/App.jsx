@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-    <h1 className='bg-violet-800 btn btn-ghost'>Hi</h1>
+      <h1 className='bg-violet-800 btn btn-ghost'>Hi</h1>
     </>
   )
 }
