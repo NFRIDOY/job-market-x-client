@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 export default function Navbar() {
@@ -21,7 +22,10 @@ export default function Navbar() {
                             <li><a>Item 3</a></li>
                         </ul>
                     </div>
-                    <a className="normal-case text-xl">Job Market X</a>
+                    <FontAwesomeIcon icon="fa-brands fa-phoenix-framework" style={{ color: "#344f7f", }} />
+                    {/* <FontAwesomeIcon icon={solid("phoenix-framework")} style={{color: "#344f7f",}} /> */}
+                    <a className="normal-case text-xl">
+                        Job Market X</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
