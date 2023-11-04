@@ -4,6 +4,12 @@ import {
 // import App from "../App";
 import MainLayout from "../layouts/MainLayout/MainLayout";
 import Home from './../pages/Home/Home';
+import AddJob from "../pages/AddJob/AddJob";
+import MyPostedJobs from "../pages/MyPostedJobs/MyPostedJobs";
+import Registration from "../pages/Registration/Registration";
+import Login from "../pages/Login/Login";
+import MyBids from "../pages/MyBids/MyBids";
+import BidRequests from "../pages/BidRequests/BidRequests";
 
 const router = createBrowserRouter([
     {
@@ -17,31 +23,33 @@ const router = createBrowserRouter([
                 // error// element: <Error></Error>,
             },
             {
-                path: "/events",
-                loader: () => fetch('/eventData.json'),
-                // element: <Events></Events>,
+                path: "/AddJob",
+                element: <AddJob></AddJob>,
                 // error// element: <Error></Error>,
             },
             {
-                path: "/registration",
-                // element: <Registration></Registration>,
+                path: "/MyPostedJobs",
+                element: <MyPostedJobs></MyPostedJobs>,
                 // error// element: <Error></Error>,
             },
             {
-                path: "/login",
-                // element: <Login></Login>,
+                path: "/MyBids",
+                element: <MyBids></MyBids>,
                 // error// element: <Error></Error>,
             },
             {
-                path: "/wishlist",
-                loader: () => fetch('/eventData.json'),
-                // element: <PrivateRoutes><Wishlist></Wishlist></PrivateRoutes>,
+                path: "/BidRequests",
+                element: <BidRequests></BidRequests>
                 // error// element: <Error></Error>,
             },
             {
-                path: "/orders",
-                loader: () => fetch('/eventData.json'),
-                // element: <PrivateRoutes><Orders></Orders></PrivateRoutes>,
+                path: "/Registration",
+                element: <Registration></Registration>,
+                // error// element: <Error></Error>,
+            },
+            {
+                path: "/Login",
+                element: <Login></Login>,
                 // error// element: <Error></Error>,
             },
             {
@@ -49,17 +57,11 @@ const router = createBrowserRouter([
                 // element: <PrivateRoutes><Profile></Profile></PrivateRoutes>,
                 // error// element: <Error></Error>,
             },
-            {
-                path: "/eventDetailsCard/:id",
-                loader: () => fetch("/eventData.json"),
-                // element: <PrivateRoutes><EventDetailsCard></EventDetailsCard></PrivateRoutes>,
-                // error// element: <Error></Error>,
-            },
 
         ],
 
     },
-    
+
 ]);
 
 export default router;

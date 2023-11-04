@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { NavLink } from "react-router-dom";
 
 
 export default function Navbar() {
@@ -11,48 +12,123 @@ export default function Navbar() {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><a>Item 1</a></li>
                             <li>
-                                <a>Parent</a>
+                                <a>
+                                    Item 1
+                                </a>
+                            </li>
+                            <li>
+
+                                <a>
+                                    Parent
+                                </a>
+
                                 <ul className="p-2">
-                                    <li><a>Submenu 1</a></li>
-                                    <li><a>Submenu 2</a></li>
+                                    <li>
+                                        <a>
+                                            Submenu 1
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            Submenu 2
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
-                            <li><a>Item 3</a></li>
+                            <li>
+                                <a>
+                                    Item 3
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <FontAwesomeIcon icon="fa-brands fa-phoenix-framework" style={{ color: "#344f7f", }} />
                     {/* <FontAwesomeIcon icon={solid("phoenix-framework")} style={{color: "#344f7f",}} /> */}
                     <a className="normal-case text-xl">
-                        Job Market X</a>
+                        Job Market X
+                    </a>
+
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <li><a>Home</a></li>
-                        <li tabIndex={0}>
-                            <details>
-                                <summary className="px-6">Manage Jobs</summary>
-                                <ul className="p-2 ">
-                                    <li className="w-fit"><a>Add Job</a></li>
-                                    <li className="w-fit"><a>My Posted Jobs</a></li>
-
-                                </ul>
-                            </details>
+                        <li>
+                            <NavLink
+                                to="/"
+                                className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "active" : ""
+                                }
+                            >
+                                Home
+                            </NavLink>
                         </li>
-                        {/* <li><a>My Bids</a></li> */}
-
-                        <li tabIndex={0}>
-                            <details>
-                                <summary className="px-8">Job Bids</summary>
-                                <ul className="p-2">
-                                    <li><a>My Bids</a></li>
-                                    <li className="w-fit"><a>Bid Requests</a></li>
-                                </ul>
-                            </details>
+                        <li className="w-fit">
+                            <NavLink
+                                to="/AddJob"
+                                className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "active" : ""
+                                }
+                            >
+                                Add Job
+                            </NavLink>
                         </li>
-                        <li><a>Registration</a></li>
-                        <li><a>Login</a></li>
+                        <li className="w-fit">
+                            <NavLink
+                                to="/MyPostedJobs"
+                                className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "active" : ""
+                                }
+                            >
+                                My Posted Jobs
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink
+                                to="/MyBids"
+                                className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "active" : ""
+                                }
+                            >
+                                My Bids
+                            </NavLink>
+                        </li>
+                        <li className="w-fit">
+                            <NavLink
+                                to="/BidRequests"
+                                className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "active" : ""
+                                }
+                            >
+                                Bid Requests
+                            </NavLink>
+                        </li>
+
+                        <li>
+                            <NavLink
+                                to="/Registration"
+                                className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "active" : ""
+                                }
+                            >
+                                Registration
+                            </NavLink>
+                            {/* <a>
+                                Registration
+                            </a> */}
+                        </li>
+                        <li>
+                            <NavLink
+                                to="/Login"
+                                className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "active" : ""
+                                }
+                            >
+                                Login
+                            </NavLink>
+                            {/* <a>
+                                
+                            </a> */}
+                        </li>
                     </ul>
                 </div>
                 <div className="navbar-end">
@@ -85,14 +161,23 @@ export default function Navbar() {
                                     <a className="justify-between">
                                         Profile
                                         {/* <span className="badge">New</span> */}
+
+                                    </a>
+
+                                </li>
+                                <li>
+                                    <a>
+                                        Settings
                                     </a>
                                 </li>
-                                <li><a>Settings</a></li>
-                                <li className="text-red-500 hover:text-red-700"><a>Logout</a></li>
+                                <li className="text-red-500 hover:text-red-700">
+                                    <a>
+                                        Logout
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
-                    {/* <a className="btn">Button</a> */}
                 </div>
             </div>
         </div>
