@@ -1,13 +1,15 @@
 import { Navigate } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
+import LoadingAnimations from '../components/LoadingAnimations/LoadingAnimations';
 
-export default function PrivateRoute({children}) {
+export default function PrivateRoute({ children }) {
     const { user, loading, setLoading } = useAuth()
     // const navigate = useNavigate();
 
     if (loading) {
         // setLoading(false)
-        return <div className='mx-auto w-fit'><span className="loading loading-ring loading-lg text-center "></span></div>
+        // return 
+        return <LoadingAnimations></LoadingAnimations>
     }
 
     if (user) {
