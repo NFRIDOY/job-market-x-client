@@ -11,36 +11,7 @@ export default function AuthProvider({ children }) {
     const auth = getAuth(app);
     const googleProvider = new GoogleAuthProvider();
 
-    //Update Ueser
-    const updateUser = () => {
-        updateProfile(auth.currentUser, {
-            displayName : user.displayName,
-            email : user.email,
-            photoURL : user.photoURL,
-            emailVerified : user.emailVerified
-        }).then(() => {
-            // Profile updated!
-            // ...
-            alert("Profile updated!")
-        }).catch((error) => {
-            // An error occurred
-            // ...
-            alert("Profile updated! Failed")
-            console.log(error)
-        });
-        if (user !== null) {
-            // The user object has basic properties such as display name, email, etc.
-            const displayName = user.displayName;
-            const email = user.email;
-            const photoURL = user.photoURL;
-            const emailVerified = user.emailVerified;
-
-            // The user's ID, unique to the Firebase project. Do NOT use
-            // this value to authenticate with your backend server, if
-            // you have one. Use User.getToken() instead.
-            const uid = user.uid;
-        }
-    }
+    
 
     const createUserEmailPass = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
@@ -85,6 +56,42 @@ export default function AuthProvider({ children }) {
             unSubscribe()
         }
     }, [user])
+
+    //Update Ueser
+    const updateUser = (name, photoURL) => {
+        updateProfile(auth.currentUser, {
+            displayName : name,
+            photoURL : photoURL,
+            // emailVerified : user.emailVerified
+        }).then(() => {
+            // Profile updated!
+            // ...
+            alert("Profile updated!")
+            alert(user.displayName)
+            alert(user.photoURL)
+            
+            
+        }).catch((error) => {
+            // An error occurred
+            // ...
+            alert("Profile updated! Failed")
+            console.log(error)
+        });
+        if (user !== null) {
+            // The user object has basic properties such as display name, email, etc.
+            const displayName = user.displayName;
+            const email = user.email;
+            const photoURL = user.photoURL;
+            const emailVerified = user.emailVerified;
+
+            // The user's ID, unique to the Firebase project. Do NOT use
+            // this value to authenticate with your backend server, if
+            // you have one. Use User.getToken() instead.
+            const uid = user.uid;
+        }
+    }
+
+
     const contextInfo = { user, setUser, createUserEmailPass, updateUser, signInEmailPass, googleSignIn, logOut }
 
     return (

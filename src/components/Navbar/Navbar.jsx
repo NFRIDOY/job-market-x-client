@@ -211,7 +211,7 @@ export default function Navbar() {
                                 {
                                     user && <li>
                                         <a>
-                                            {!user.email ? user.email : user.email }
+                                            {user.displayName ? user.displayName : user.email }
                                         </a>
                                     </li>
                                 }

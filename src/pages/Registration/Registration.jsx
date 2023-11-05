@@ -25,7 +25,7 @@ export default function Registration() {
         const user = userCredential.user;
         console.log("User Creds", user)
         setUser(user)
-        updateUser()
+        updateUser(name, photoURL)
         alert("User Created", user.email )
       })
       .catch((error) => {
