@@ -39,7 +39,7 @@ export default function MyPostedJobCard({ postedJob }) {
                 </div>
                 <div className="p-6 pt-0 gap-x-4 w-full flex justify-between items-center">
                     <div>
-                        <h1 className="text-xl">Salary Range: <span className="font-bold text-accent "s>৳<span>{minPrice}</span> - ৳<span>{maxPrice}</span></span>
+                        <h1 className="text-xl">Salary Range: <span className="font-bold text-accent ">৳<span>{minPrice}</span> - ৳<span>{maxPrice}</span></span>
                         </h1>
                     </div>
                     <div className=" flex gap-x-4 justify-end">
