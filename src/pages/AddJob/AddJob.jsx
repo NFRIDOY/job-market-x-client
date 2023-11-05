@@ -1,9 +1,14 @@
+import toast from "react-hot-toast";
 import useAuth from "../../hooks/useAuth"
+import useAxios from "../../hooks/useAxios";
+// import axios from "axios";
+// import { data } from "autoprefixer";
 
 
 export default function AddJob() {
 
     const { user, loading, setLoading } = useAuth()
+    const axios = useAxios();
 
     const handleAddJob = (e) => {
         e.preventDefault();
@@ -15,7 +20,7 @@ export default function AddJob() {
         const category = form.category.value;
         const minPrice = parseFloat(form.MinPrice.value);
         const maxPrice = parseFloat(form.MaxPrice.value);
-        
+
 
         const newJob = {
             email,
@@ -28,9 +33,33 @@ export default function AddJob() {
         }
         // Output
         console.log(newJob)
+        // http://localhost:5000/api/v1/addJobs
+        axios.post("http://localhost:5000/api/v1/addJobs", newJob)
+            .then(res => {
+                console.log(res.data)
+                if (res.data.acknowledged) {
+                    toast.success('Successfully Added!')
+                } else {
+                    toast.error('Failed To Add!')
+                }
+
+            })
+
+        // fetch("http://localhost:5000/api/v1/addJobs", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify(newJob)
+        // })
+        // .then(res => res.json())
+        // .then (data => {
+        //     console.log(data)
+        // })
+
     }
 
-    console.log("AddJob",user)
+    console.log("AddJob", user)
     // if(user) {
     //     setLoading(false)
     // }
@@ -80,7 +109,7 @@ export default function AddJob() {
                     <div className="flex gap-4">
                         <div className="w-1/2">
                             <label htmlFor="Minimum Price" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Minimum Price</label>
-                            <input type="text"  name="MinPrice" id="MinPrice" className=" bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Minimum Price" required="" />
+                            <input type="text" name="MinPrice" id="MinPrice" className=" bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Minimum Price" required="" />
                         </div>
                         <div className="w-1/2">
                             <label htmlFor="Maximum Price" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Minimum Price</label>
