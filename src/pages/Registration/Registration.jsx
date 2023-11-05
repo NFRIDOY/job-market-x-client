@@ -2,6 +2,11 @@ import { Link } from "react-router-dom";
 
 
 export default function Registration() {
+
+  const handleReg = e => {
+    e.preventDefault();
+  }
+
   return (
     <div>
       <section className="bg-white w-full dark:bg-gray-900">
@@ -15,7 +20,7 @@ export default function Registration() {
               <h1 className="text-center text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Registration for your account
               </h1>
-              <form className="space-y-4 md:space-y-6" >
+              <form className="space-y-4 md:space-y-6" onSubmit={handleReg}>
 
                 <div className="flex space-x-4">
                   <div>
