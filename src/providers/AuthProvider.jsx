@@ -6,7 +6,7 @@ export const AuthContext = createContext(null)
 
 export default function AuthProvider({ children }) {
 
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState()
 
     const auth = getAuth(app);
     const googleProvider = new GoogleAuthProvider();
@@ -39,8 +39,8 @@ export default function AuthProvider({ children }) {
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser)
             if (currentUser) {
-                setUser(currentUser)
                 // User is signed in, see docs for a list of available properties
                 // https://firebase.google.com/docs/reference/js/auth.user
                 const uid = currentUser.uid;

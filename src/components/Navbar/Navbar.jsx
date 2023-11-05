@@ -1,11 +1,13 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 
 export default function Navbar() {
-    const { user, logOut } = useAuth()
+    const { user, setUser, logOut } = useAuth()
 
+    console.log(user)
+    console.log(user?.photoURL)
     const handleLogOut = () => {
         logOut()
 
@@ -96,7 +98,7 @@ export default function Navbar() {
                             </li>
                         </ul>
                     </div>
-                    <FontAwesomeIcon icon="fa-brands fa-phoenix-framework" style={{ color: "#344f7f", }} />
+                    {/* <FontAwesomeIcon icon="fa-brands fa-phoenix-framework" style={{ color: "#344f7f", }} /> */}
                     {/* <FontAwesomeIcon icon={solid("phoenix-framework")} style={{color: "#344f7f",}} /> */}
                     <a className="normal-case text-xl">
                         Job Market X
@@ -201,37 +203,42 @@ export default function Navbar() {
                                 </div>
                             </div>
                         </div> */}
-                        <div className="dropdown dropdown-end">
-                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 mask mask-squircle">
-                                    <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                                </div>
-                            </label>
-                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                                {
-                                    user && <li>
-                                        <a>
-                                            {user.displayName ? user.displayName : user.email }
+                        {
+                            user && <div className="dropdown dropdown-end">
+                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 mask mask-squircle">
+                                        {/* user?.photoURL ? <img src="https://lh3.googleusercontent.com/a/ACg8ocLeYK4kLXcUBp6rjviW64Wvd_e9SNWQOJZiFeInmq4QS3a4=s96-c" /> : null */}
+                                        {
+                                            user?.photoURL && <img src={user?.photoURL} />
+                                        }
+                                    </div>
+                                </label>
+                                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                                    {
+                                        user && <li>
+                                            <a>
+                                                {user.displayName ? user.displayName : user.email}
+                                            </a>
+                                        </li>
+                                    }
+                                    <li>
+                                        <a className="justify-between">
+                                            Profile
+                                            {/* <span className="badge">New</span> */}
+
+                                        </a>
+
+                                    </li>
+
+
+                                    <li className="text-red-500 hover:text-red-700">
+                                        <a onClick={handleLogOut}>
+                                            Logout
                                         </a>
                                     </li>
-                                }
-                                <li>
-                                    <a className="justify-between">
-                                        Profile
-                                        {/* <span className="badge">New</span> */}
-
-                                    </a>
-
-                                </li>
-
-
-                                <li className="text-red-500 hover:text-red-700">
-                                    <a onClick={handleLogOut}>
-                                        Logout
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                                </ul>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>

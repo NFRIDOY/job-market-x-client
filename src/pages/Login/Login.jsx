@@ -4,8 +4,61 @@ import useAuth from "../../hooks/useAuth";
 
 export default function Login() {
 
-    const { user, createUserEmailPass, signInEmailPass, googleSignIn  } = useAuth()
+    const { user, setUser, createUserEmailPass, signInEmailPass, googleSignIn } = useAuth()
 
+    const handleLogin = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        console.log(email)
+        console.log(password)
+
+        signInEmailPass(email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                setUser(user)
+                alert("User Login")
+                console.log(user)
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert("User Login Failed")
+                console.log(" Error on CreateUser ", errorCode)
+                console.log(" Error on CreateUser ", errorMessage)
+            });
+    }
+
+    const hangleGoogleSignIn = () => {
+        googleSignIn()
+            .then((result) => {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                // const credential = GoogleAuthProvider.credentialFromResult(result);
+                // const token = credential.accessToken;
+                // The signed-in user info.
+                const user = result.user;
+                // IdP data available using getAdditionalUserInfo(result)
+                // ...
+                alert("User Login Using Google")
+                setUser(user)
+                console.log(user)
+            }).catch((error) => {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                // const email = error.customData.email;
+                // The AuthCredential type that was used.
+                // const credential = GoogleAuthProvider.credentialFromError(error);
+                // ...
+                alert("User Login Failed")
+                console.log(" Error on CreateUser ", errorCode)
+                console.log(" Error on CreateUser ", errorMessage)
+            });
+    }
     return (
         <div>
             <section className="bg-white w-full dark:bg-gray-900">
@@ -19,7 +72,7 @@ export default function Login() {
                             <h1 className="text-center text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                                 Sign in to your account
                             </h1>
-                            <form className="space-y-4 md:space-y-6" action="#">
+                            <form className="space-y-4 md:space-y-6" onSubmit={handleLogin}>
                                 <div>
                                     <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
                                     <input type="email" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@mail.com" required="" />
@@ -40,7 +93,7 @@ export default function Login() {
                                     {/* <a href="#" className="text-sm font-medium text-primary hover:underline dark:text-primary">Forgot password?</a> */}
                                 </div>
                                 <button type="submit" className="w-full text-white bg-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary dark:focus:ring-primary-800">Sign in</button>
-                                <button type="submit" className="w-full  border-green-500 border-2 text-black hover:bg-white focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary dark:focus:ring-primary-800 flex justify-between">
+                                <button type="button" className="w-full  border-green-500 border-2 text-black hover:bg-white focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary dark:focus:ring-primary-800 flex justify-between" onClick={hangleGoogleSignIn}>
                                     <h1>
                                         Google
                                     </h1>
