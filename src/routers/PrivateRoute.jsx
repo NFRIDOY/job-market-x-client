@@ -5,9 +5,10 @@ export default function PrivateRoute({children}) {
     const { user, loading, setLoading } = useAuth()
     // const navigate = useNavigate();
 
-    // if (loading) {
-    //     return <div className='mx-auto w-fit'><span className="loading loading-ring loading-lg text-center "></span></div>
-    // }
+    if (loading) {
+        // setLoading(false)
+        return <div className='mx-auto w-fit'><span className="loading loading-ring loading-lg text-center "></span></div>
+    }
 
     if (user) {
         // setLoading(false)
