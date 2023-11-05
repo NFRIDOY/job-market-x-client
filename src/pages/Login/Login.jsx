@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 
 export default function Login() {
+
+    const { user, createUserEmailPass, signInEmailPass, googleSignIn  } = useAuth()
+
     return (
         <div>
             <section className="bg-white w-full dark:bg-gray-900">

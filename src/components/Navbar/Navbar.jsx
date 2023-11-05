@@ -1,8 +1,15 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 
 export default function Navbar() {
+    const { user, logOut } = useAuth()
+
+    const handleLogOut = () => {
+        logOut()
+
+    }
     return (
         <div>
             <div className="navbar bg-base-300 rounded-b-3xl px-10">
@@ -72,7 +79,7 @@ export default function Navbar() {
                                 >
                                     Registration
                                 </NavLink>
-                                
+
                             </li>
                             <li>
                                 <NavLink
@@ -158,7 +165,7 @@ export default function Navbar() {
                             >
                                 Registration
                             </NavLink>
-                            
+
                         </li>
                         <li>
                             <NavLink
@@ -201,6 +208,13 @@ export default function Navbar() {
                                 </div>
                             </label>
                             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                                {
+                                    user && <li>
+                                        <a>
+                                            {!user.email ? user.email : user.email }
+                                        </a>
+                                    </li>
+                                }
                                 <li>
                                     <a className="justify-between">
                                         Profile
@@ -209,13 +223,10 @@ export default function Navbar() {
                                     </a>
 
                                 </li>
-                                <li>
-                                    <a>
-                                        Settings
-                                    </a>
-                                </li>
+
+
                                 <li className="text-red-500 hover:text-red-700">
-                                    <a>
+                                    <a onClick={handleLogOut}>
                                         Logout
                                     </a>
                                 </li>
