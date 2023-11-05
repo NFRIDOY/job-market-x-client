@@ -7,6 +7,7 @@ export const AuthContext = createContext(null)
 export default function AuthProvider({ children }) {
 
     const [user, setUser] = useState()
+    const [loading, setLoading] = useState(true)
 
     const auth = getAuth(app);
     const googleProvider = new GoogleAuthProvider();
@@ -14,17 +15,21 @@ export default function AuthProvider({ children }) {
     
 
     const createUserEmailPass = (email, password) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const signInEmailPass = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     const googleSignIn = () => {
+        setLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
 
     const logOut = () => {
+        setLoading(true)
         signOut(auth).then(() => {
             // Sign-out successful.
             alert("Sign-out successful.")
@@ -39,17 +44,18 @@ export default function AuthProvider({ children }) {
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+            // setLoading(true)
             setUser(currentUser)
-            if (currentUser) {
-                // User is signed in, see docs for a list of available properties
-                // https://firebase.google.com/docs/reference/js/auth.user
-                const uid = currentUser.uid;
-                // ...
-                console.log(user)
-            } else {
-                // User is signed out
-                // ...
-            }
+            // if (currentUser) {
+            //     // User is signed in, see docs for a list of available properties
+            //     // https://firebase.google.com/docs/reference/js/auth.user
+            //     const uid = currentUser.uid;
+            //     // ...
+            //     console.log(user)
+            // } else {
+            //     // User is signed out
+            //     // ...
+            // }
         })
 
         return () => {
@@ -92,7 +98,7 @@ export default function AuthProvider({ children }) {
     }
 
 
-    const contextInfo = { user, setUser, createUserEmailPass, updateUser, signInEmailPass, googleSignIn, logOut }
+    const contextInfo = { user, setUser, loading, setLoading, createUserEmailPass, updateUser, signInEmailPass, googleSignIn, logOut }
 
     return (
         <AuthContext.Provider value={contextInfo}>

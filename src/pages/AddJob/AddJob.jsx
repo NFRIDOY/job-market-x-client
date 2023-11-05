@@ -3,12 +3,16 @@ import useAuth from "../../hooks/useAuth"
 
 export default function AddJob() {
 
-    const { user } = useAuth()
+    const { user, loading, setLoading } = useAuth()
 
     const handleAddJob = (e) => {
         e.preventDefault();
     }
 
+    console.log("AddJob",user)
+    // if(user) {
+    //     setLoading(false)
+    // }
     return (
         <div className="py-7 flex ">
             <div className="w-1/2 space-y-6">
