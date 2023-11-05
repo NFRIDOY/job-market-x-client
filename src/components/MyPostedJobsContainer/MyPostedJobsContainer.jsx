@@ -3,6 +3,7 @@ import MyPostedJobCard from "../MyPostedJobCard/MyPostedJobCard";
 import useAxios from "../../hooks/useAxios";
 import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
+import LoadingAnimations from "../LoadingAnimations/LoadingAnimations";
 
 
 export default function MyPostedJobsContainer({ }) {
@@ -25,7 +26,8 @@ export default function MyPostedJobsContainer({ }) {
             ),
     })
 
-    if (isPending) return 'Loading...'
+    // 'Loading...'
+    if (isPending) return <LoadingAnimations></LoadingAnimations>
 
     // if (error) return 'An error has occurred: ' + error.message
 
