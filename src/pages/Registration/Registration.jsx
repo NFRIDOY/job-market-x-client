@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 
 export default function Registration() {
+
+  const { test } = useAuth()
 
   const handleReg = e => {
     e.preventDefault();
@@ -9,6 +12,7 @@ export default function Registration() {
 
   return (
     <div>
+      
       <section className="bg-white w-full dark:bg-gray-900">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
