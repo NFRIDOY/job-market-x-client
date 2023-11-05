@@ -7,6 +7,27 @@ export default function AddJob() {
 
     const handleAddJob = (e) => {
         e.preventDefault();
+        const form = e.target;
+        const email = user.email
+        const jobTitle = form.JobTitle.value;
+        const deadline = form.deadline.value;
+        const description = form.description.value;
+        const category = form.category.value;
+        const minPrice = parseFloat(form.MinPrice.value);
+        const maxPrice = parseFloat(form.MaxPrice.value);
+        
+
+        const newJob = {
+            email,
+            jobTitle,
+            deadline,
+            description,
+            category,
+            minPrice,
+            maxPrice
+        }
+        // Output
+        console.log(newJob)
     }
 
     console.log("AddJob",user)
@@ -59,7 +80,7 @@ export default function AddJob() {
                     <div className="flex gap-4">
                         <div className="w-1/2">
                             <label htmlFor="Minimum Price" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Minimum Price</label>
-                            <input type="text" name="MinPrice" id="MinPrice" className=" bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Minimum Price" required="" />
+                            <input type="text"  name="MinPrice" id="MinPrice" className=" bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Minimum Price" required="" />
                         </div>
                         <div className="w-1/2">
                             <label htmlFor="Maximum Price" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Minimum Price</label>
@@ -68,7 +89,7 @@ export default function AddJob() {
                     </div>
                     <div className="w-full">
                         {/* <label htmlFor="yyyyy" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Job Title</label> */}
-                        <input type="submit" name="yyyyy" id="yyyyy" className="w-full text-white bg-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary dark:focus:ring-primary-800" placeholder="Job Title" required="" />
+                        <input type="submit" name="submit" id="submit" className="w-full text-white bg-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary dark:focus:ring-primary-800" placeholder="Job Title" required="" />
                     </div>
                 </form>
             </div>
