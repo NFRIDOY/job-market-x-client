@@ -11,6 +11,9 @@ import Login from "../pages/Login/Login";
 import MyBids from "../pages/MyBids/MyBids";
 import BidRequests from "../pages/BidRequests/BidRequests";
 import PrivateRoute from "./PrivateRoute";
+import UpdateMyPostedJobCard from "../components/UpdateMyPostedJobCard/UpdateMyPostedJobCard";
+import useAxios from "../hooks/useAxios";
+
 
 const router = createBrowserRouter([
     {
@@ -31,6 +34,12 @@ const router = createBrowserRouter([
             {
                 path: "/MyPostedJobs",
                 element: <PrivateRoute><MyPostedJobs></MyPostedJobs></PrivateRoute>,
+                // error// element: <Error></Error>,
+            },
+            {
+                path: "/MyPostedJobs/:id",
+                // loader: fetch(`/MyPostedJobs/${prams.id}`),
+                element: <PrivateRoute><UpdateMyPostedJobCard></UpdateMyPostedJobCard></PrivateRoute>,
                 // error// element: <Error></Error>,
             },
             {
