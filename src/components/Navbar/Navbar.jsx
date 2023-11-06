@@ -215,7 +215,7 @@ export default function Navbar() {
                                 </label>
                                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                                     {
-                                        user && <li>
+                                        user && <li title={user.email}>
                                             <a>
                                                 {user.displayName ? user.displayName : user.email}
                                             </a>
@@ -231,7 +231,7 @@ export default function Navbar() {
                                     </li>
 
 
-                                    <li className="text-red-500 hover:text-red-700">
+                                    <li className="text-red-500 hover:text-red-700" title="Click To Logout">
                                         <a onClick={handleLogOut}>
                                             Logout
                                         </a>
