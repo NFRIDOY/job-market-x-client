@@ -4,6 +4,7 @@ import useAxios from "../../hooks/useAxios";
 import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import LoadingAnimations from "../LoadingAnimations/LoadingAnimations";
+import JobCard from "../JobCard/JobCard";
 
 
 export default function AllJobs() {
@@ -35,9 +36,9 @@ export default function AllJobs() {
     return (
         <div>
             {/* <h1 className="text-center text-xl">You Can See All Your Posted Jobs</h1> */}
-            <div className="grid grid-cols-1 md:grid-cols-2 md:grid-flow-row-dense md:gap-y-8 py-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 md:grid-flow-row-dense md:gap-y-8 py-10">
                 {
-                    postedJobData?.map(postedJob => <MyPostedJobCard key={postedJob._id} postedJob={postedJob}></MyPostedJobCard>)
+                    postedJobData?.map(postedJob => <JobCard key={postedJob._id} postedJob={postedJob}></JobCard>)
                 }
             </div>
         </div>
