@@ -14,7 +14,7 @@ export default function Navbar() {
     }
     return (
         <div>
-            <div className="navbar bg-base-300 rounded-b-3xl px-10">
+            <div className="navbar bg-white rounded-b-3xl px-10">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">

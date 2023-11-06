@@ -85,12 +85,12 @@ export default function JobCard({ postedJob }) {
                         {description}
                     </p>
                 </div>
-                <div className="p-6 pt-0 flex items-end justify-end">
-                    <h1>
-
+                <div className="p-6 pt-0 flex justify-between items-center">
+                    <h1 className="text-xl"><span className="font-bold text-accent ">
+                        ৳<span>{minPrice}</span> - ৳<span>{maxPrice}</span></span>
                     </h1>
                     <button
-                        className="select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                        className="select-none rounded-lg bg-yellow-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-yellow-500/20 transition-all hover:shadow-lg hover:shadow-yellow-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                         type="button"
                         data-ripple-light="true"
                     >
