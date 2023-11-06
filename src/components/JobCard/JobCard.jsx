@@ -89,13 +89,13 @@ export default function JobCard({ postedJob }) {
                     <h1 className="text-xl"><span className="font-bold text-accent ">
                         ৳<span>{minPrice}</span> - ৳<span>{maxPrice}</span></span>
                     </h1>
-                    <button
+                    <Link to={`/Jobs/${_id}`}
                         className="select-none rounded-lg bg-yellow-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-yellow-500/20 transition-all hover:shadow-lg hover:shadow-yellow-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                         type="button"
                         data-ripple-light="true"
                     >
                         Bid Now
-                    </button>
+                    </Link>
                 </div>
             </div>
 

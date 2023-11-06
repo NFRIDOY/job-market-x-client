@@ -13,8 +13,9 @@ import BidRequests from "../pages/BidRequests/BidRequests";
 import PrivateRoute from "./PrivateRoute";
 import UpdateMyPostedJobCard from "../components/UpdateMyPostedJobCard/UpdateMyPostedJobCard";
 import useAxios from "../hooks/useAxios";
+import JobDetails from "../components/JobDetails/JobDetails";
 
-
+// const axios = useAxios()
 const router = createBrowserRouter([
     {
         path: "/",
@@ -24,6 +25,13 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
+                // error// element: <Error></Error>,
+            },
+            {
+                path: "/Jobs/:id",
+                loader: ({ params }) => fetch(`http://localhost:5000/api/v1/allJobs/${params.id}`),
+                // loader: ({ params }) => axios.get(`/allJobs/${params.id}`),
+                element: <JobDetails></JobDetails>,
                 // error// element: <Error></Error>,
             },
             {
