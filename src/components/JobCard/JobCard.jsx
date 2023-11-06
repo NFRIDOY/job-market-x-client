@@ -68,7 +68,7 @@ export default function JobCard({ postedJob }) {
     // }
     return (
         <div>
-            <div className="relative flex flex-col text-gray-700 bg-white shadow-md w-96 rounded-xl bg-clip-border h-fit">
+            <div className="relative flex flex-col text-gray-700 bg-white shadow-md w-96 rounded-3xl bg-clip-border h-fit border-2">
                 <div className="p-6">
                     <div>
                         <h5 className="block mb-2 font-sans text-2xl antialiased font-bold leading-snug tracking-normal text-blue-gray-900 ">
@@ -87,7 +87,7 @@ export default function JobCard({ postedJob }) {
                 </div>
                 <div className="p-6 pt-0 flex items-end justify-end">
                     <h1>
-                        
+
                     </h1>
                     <button
                         className="select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
