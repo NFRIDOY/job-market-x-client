@@ -33,10 +33,10 @@ export default function AuthProvider({ children }) {
         setLoading(true)
         signOut(auth).then(() => {
             // Sign-out successful.
-            alert("Sign-out successful.")
+            toast.success("Sign-out successful.")
         }).catch((error) => {
             // An error happened.
-            alert("Sign-out Failes. Error")
+            toast.error("Sign-out Failes. Error")
             console.log(error)
         });
 
@@ -81,7 +81,7 @@ export default function AuthProvider({ children }) {
         }).catch((error) => {
             // An error occurred
             // ...
-            alert("Profile updated! Failed")
+            toast.success("Profile updated! Failed")
             console.log(error)
         });
         if (user !== null) {

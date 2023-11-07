@@ -1,5 +1,5 @@
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 
@@ -230,11 +230,11 @@ export default function Navbar() {
                                         </li>
                                     }
                                     <li>
-                                        <a className="justify-between">
-                                            Profile
+                                        <Link to={'/profile'} className="justify-between">
+                                            Profile Setting
                                             {/* <span className="badge">New</span> */}
 
-                                        </a>
+                                        </Link>
 
                                     </li>
 

@@ -56,7 +56,7 @@ export default function UpdateMyPostedJobCard() {
 
     const handleUpdateJob = (e) => {
         e.preventDefault();
-        alert("Update IT")
+        // alert("Update IT")
         const form = e.target;
         const email = user.email
         const jobTitleUpdate = form.JobTitle.value;

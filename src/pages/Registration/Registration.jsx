@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 
 export default function Registration() {
@@ -26,7 +27,7 @@ export default function Registration() {
         console.log("User Creds", user)
         setUser(user)
         updateUser(name, photoURL)
-        alert("User Created" )
+        toast.success("User Created" )
         console.log(user)
       })
       .catch((error) => {
