@@ -27,29 +27,33 @@ export default function JobDetails() {
         const form = e.target;
         const priceForm = form.price.value;
         const deadlineForm = form.deadline.value;
-        const emailEmpForm = user.email;
+        const emailBidForm = user.email;
         const emailOwnerForm = form.emailOwner.value;
         // const categoryForm = form.category.value;
         // const minPriceForm = parseFloat(form.MinPrice.value);
         // const maxPriceForm = parseFloat(form.MaxPrice.value);
 
-        console.log(priceForm)
-        console.log(deadlineForm)
-        console.log(emailEmpForm)
-        console.log(emailOwnerForm)
-        // const newJob = {
-        //     email,
-        //     jobTitle,
-        //     deadline,
-        //     description,
-        //     category,
-        //     minPrice,
-        //     maxPrice
-        // }
-        // Output
-        // console.log(newJob)
+        // console.log(priceForm)
+        // console.log(deadlineForm)
+        // console.log(emailBidForm)
+        // console.log(emailOwnerForm)
+
+        const newBid = {
+            emailBidForm,
+            emailOwnerForm,
+            priceForm,
+            deadlineForm,
+            jobTitle,
+            deadline,
+            description,
+            category,
+            minPrice,
+            maxPrice
+        }
+        // // Output
+        console.log(newBid)
         // http://localhost:5000/api/v1/addJobs
-        axios.post("/addBid").then((res) => {
+        axios.post("/myBids", newBid).then((res) => {
             console.log(res.data);
             if (res.data.acknowledged) {
                 toast.success("Successfully Added!");
