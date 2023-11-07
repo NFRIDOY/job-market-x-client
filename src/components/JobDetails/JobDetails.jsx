@@ -25,15 +25,18 @@ export default function JobDetails() {
     const handlePlaceBid = (e) => {
         e.preventDefault();
         const form = e.target;
-        const emailForm = user.email;
-        const jobTitleForm = form.JobTitle.value;
+        const priceForm = form.price.value;
         const deadlineForm = form.deadline.value;
-        const descriptionForm = form.description.value;
-        const categoryForm = form.category.value;
+        const emailEmpForm = user.email;
+        const emailOwnerForm = form.emailOwner.value;
+        // const categoryForm = form.category.value;
         // const minPriceForm = parseFloat(form.MinPrice.value);
         // const maxPriceForm = parseFloat(form.MaxPrice.value);
-        // const
 
+        console.log(priceForm)
+        console.log(deadlineForm)
+        console.log(emailEmpForm)
+        console.log(emailOwnerForm)
         // const newJob = {
         //     email,
         //     jobTitle,
@@ -46,7 +49,7 @@ export default function JobDetails() {
         // Output
         // console.log(newJob)
         // http://localhost:5000/api/v1/addJobs
-        axios.post("/addJobs").then((res) => {
+        axios.post("/addBid").then((res) => {
             console.log(res.data);
             if (res.data.acknowledged) {
                 toast.success("Successfully Added!");
@@ -234,7 +237,7 @@ export default function JobDetails() {
                             id="price"
                             className=" bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder={"Max Price is " + maxPrice}
-                            defaultValue={minPrice}
+                            // defaultValue={minPrice}
                             required
                         />
                     </div>
@@ -273,7 +276,7 @@ export default function JobDetails() {
                     </div>
                     <div className="w-full">
                         <label
-                            htmlFor="email"
+                            htmlFor="emailOwner"
                             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                             Job Recruiters&apos; Email <span>(Read Only)</span>
                         </label>
@@ -281,10 +284,10 @@ export default function JobDetails() {
                             disabled
                             defaultValue={email}
                             type="email"
-                            name="email"
-                            id="email"
+                            name="emailOwner"
+                            id="emailOwner"
                             className=" bg-gray-50 border border-gray-300 text-gray-400 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder={user.email}
+                            placeholder={email}
                             required
                         />
                     </div>
