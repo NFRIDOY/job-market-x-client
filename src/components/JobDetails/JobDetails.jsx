@@ -10,7 +10,7 @@ export default function JobDetails() {
     const jobloaderData = useLoaderData();
 
     const {
-        _id,
+        // _id,
         email,
         jobTitle,
         deadline,

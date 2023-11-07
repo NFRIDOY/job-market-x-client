@@ -2,6 +2,11 @@
 
 export default function BidRequests() {
     return (
-        <div>BidRequests</div>
+        <div>
+            <h1>
+                BidRequests
+            </h1>
+            
+        </div>
     )
 }

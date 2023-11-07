@@ -100,7 +100,7 @@ export default function Navbar() {
                     </div>
                     {/* <FontAwesomeIcon icon="fa-brands fa-phoenix-framework" style={{ color: "#344f7f", }} /> */}
                     {/* <FontAwesomeIcon icon={solid("phoenix-framework")} style={{color: "#344f7f",}} /> */}
-                    <a className="normal-case text-xl">
+                    <a className="normal-case text-2xl font-extrabold">
                         Job Market X
                     </a>
 
