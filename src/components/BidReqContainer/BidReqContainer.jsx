@@ -94,20 +94,23 @@ export default function BidReqContainer() {
                                     <td>{bidJob?.priceForm}</td>
                                     <td>{bidJob?.status}</td>
                                     {
-
+                                        bidJob?.status !== "Complete" && <td>
+                                            <button className="btn btn-sm btn-success text-white"
+                                                onClick={() => handleAcceptBtn(bidJob._id)}>
+                                                Accept
+                                            </button>
+                                        </td>
                                     }
-                                    <td>
-                                        <button className="btn btn-sm btn-success text-white"
-                                            onClick={() => handleAcceptBtn(bidJob._id)}>
-                                            Accept
-                                        </button>
-                                    </td>
+
                                     {/* <td>{bidJob?.status === "progress" && <button onClick={handleAcceptBtn}>Accept</button></td> */}
-                                    <td>
-                                        <button className="btn btn-sm btn-error text-white"
-                                            onClick={() => handleRejectBtn(bidJob._id)}>
-                                            Reject
-                                        </button></td>
+                                    {
+                                        bidJob?.status !== "Complete" && <td>
+                                            <button className="btn btn-sm btn-error text-white"
+                                                onClick={() => handleRejectBtn(bidJob._id)}>
+                                                Reject
+                                            </button></td>
+                                    }
+
                                     {/* <td>{bidJob?.status === "progress" && <button onClick={handleRejectBtn}>Reject</button></td> */}
                                 </tr>
                                 )

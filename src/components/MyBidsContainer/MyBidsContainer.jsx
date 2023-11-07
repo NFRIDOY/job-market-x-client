@@ -4,30 +4,30 @@ import useAxios from "../../hooks/useAxios"
 import { useQuery } from "@tanstack/react-query"
 import LoadingAnimations from "../LoadingAnimations/LoadingAnimations"
 import toast from "react-hot-toast"
+import { faL } from "@fortawesome/free-solid-svg-icons"
 
 export default function MyBidsContainer() {
     const [myBidJobs, setMyBidJobs] = useState([])
-    const [isComplete, setIsComplete] = useState(null)
+    const [isComplete, setIsComplete] = useState(false)
     const axios = useAxios()
     const { user } = useAuth()
 
     const handleComplete = (id) => {
-        setIsComplete(false)
         toast.success("Complete")
         axios.put(`/myBids/${id}`, { status: "Complete" })
             .then(res => {
                 console.log(res.data)
                 toast.success("Complete")
                 // toast.success("Rejected")
-                toast.success("Job Completed")
-                setIsComplete(true)
+                toast.success("Job Completed") 
+                setIsComplete(!isComplete)
             })
     }
 
     const isReqTrue = 0;
 
     const { isPending, error, data: AllJobs } = useQuery({
-        queryKey: ['MyBids', user],
+        queryKey: ['MyBids', user, isComplete],
         queryFn: () =>
             // axios.get(`/allJobs`).then(
             axios.get(`/myBids?email=${user.email}&isReq=${isReqTrue}`).then(
@@ -73,7 +73,7 @@ export default function MyBidsContainer() {
                                             {
                                                 bidJob?.status === "In Progress" ? <button className="btn btn-sm px- btn-success text-white" onClick={() => handleComplete(bidJob._id)}>
                                                     Complete
-                                                </button> : <button disabled className="btn btn-sm btn-neutral"> 
+                                                </button> : <button disabled className="btn btn-sm btn-neutral">
                                                     Uncomplete
                                                 </button>
                                             }
