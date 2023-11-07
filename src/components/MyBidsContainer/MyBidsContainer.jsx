@@ -2,6 +2,7 @@ import { useState } from "react"
 import useAuth from "../../hooks/useAuth"
 import useAxios from "../../hooks/useAxios"
 import { useQuery } from "@tanstack/react-query"
+import LoadingAnimations from "../LoadingAnimations/LoadingAnimations"
 
 export default function MyBidsContainer() {
     const [myBidJobs, setMyBidJobs] = useState([])
@@ -22,6 +23,8 @@ export default function MyBidsContainer() {
             ),
     })
 
+    // 'Loading...'
+    if (isPending) return <LoadingAnimations></LoadingAnimations>
 
     return (
         <div>
@@ -42,16 +45,17 @@ export default function MyBidsContainer() {
                         </thead>
                         <tbody>
                             {
-                                // myBidJobs?.map()
+                                myBidJobs?.map((bidJob, index) => <tr key={bidJob?._id}>
+                                        <td>{index+1}</td>
+                                        <th>{bidJob?.jobTitle}</th>
+                                        <td>{bidJob?.emailOwnerForm}</td>
+                                        <td>{bidJob?.deadline}</td>
+                                        <td>{bidJob?.status}</td>
+                                        <td>{bidJob?.status === "progress" && bidJob?.option}</td>
+                                    </tr>
+                                )
                             }
-                            <tr>
-                                <th>1</th>
-                                <td>Cy Ganderton</td>
-                                <td>Quality Control Specialist</td>
-                                <td>Littel, Schaden and Vandervort</td>
-                                <td>Canada</td>
-                                <td>12/16/2020</td>
-                            </tr>
+
                         </tbody>
                         <tfoot>
                             <tr>
