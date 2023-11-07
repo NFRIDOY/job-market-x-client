@@ -9,8 +9,6 @@ export default function JobDetails() {
 
     const jobloaderData = useLoaderData();
 
-    // const []
-
     const {
         _id,
         email,
@@ -48,7 +46,8 @@ export default function JobDetails() {
             description,
             category,
             minPrice,
-            maxPrice
+            maxPrice,
+            status: "Pending"
         }
         // // Output
         console.log(newBid)

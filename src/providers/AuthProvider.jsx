@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react"
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signInWithPopup, GoogleAuthProvider, signOut, updateProfile } from "firebase/auth";
 import app from "../firebase/firebase.config";
+import toast from "react-hot-toast";
 
 export const AuthContext = createContext(null)
 
@@ -72,9 +73,9 @@ export default function AuthProvider({ children }) {
         }).then(() => {
             // Profile updated!
             // ...
-            alert("Profile updated!")
-            alert(user.displayName)
-            alert(user.photoURL)
+            toast.success("Profile updated!")
+            toast.success(user.displayName)
+            toast.success(user.photoURL)
             
             
         }).catch((error) => {

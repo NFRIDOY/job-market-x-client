@@ -8,12 +8,12 @@ import { useQuery } from "@tanstack/react-query";
 
 export default function UpdateMyPostedJobCard() {
     const [updateThisJob, setUpdateThisJob] = useState({})
-    const id = useParams()
+    const { id } = useParams()
 
     const { user } = useAuth()
     const axios = useAxios()
 
-    // console.log(id)
+    console.log("Update This ID: ", id)
 
     // const { isPending, error, data: myPostedJob } = useQuery({
     //     queryKey: ['PostedJob', user],
@@ -22,7 +22,7 @@ export default function UpdateMyPostedJobCard() {
     //             (res) => {
     //                 console.log(res.data)
     //                 console.log(myPostedJob)
-    //                 setUpdateThisJob(myPostedJob)
+    //                 setUpdateThisJob(res.data)
     //             },
 
     //         ),
@@ -34,7 +34,7 @@ export default function UpdateMyPostedJobCard() {
             console.log(res.data)
             setUpdateThisJob(res.data)
         })
-    }, [])
+    }, [user])
 
     // axios.get(`/MyPostedJobs/${id}`)
     //     .then(res => {
@@ -56,35 +56,48 @@ export default function UpdateMyPostedJobCard() {
 
     const handleUpdateJob = (e) => {
         e.preventDefault();
-        alert("Update")
+        alert("Update IT")
         const form = e.target;
-        // email = user.email
-        // jobTitle = form.JobTitle.value;
-        // deadline = form.deadline.value;
-        // description = form.description.value;
-        // category = form.category.value;
-        // minPrice = parseFloat(form.MinPrice.value);
-        // maxPrice = parseFloat(form.MaxPrice.value);
+        const email = user.email
+        const jobTitleUpdate = form.JobTitle.value;
+        // console.log(jobTitleUpdate)
+        const deadlineUpdate = form.deadline.value;
+        const descriptionUpdate = form.description.value;
+        const categoryUpdate = form.category.value;
+        const minPriceUpdate = parseFloat(form.MinPrice.value);
+        const maxPriceUpdate = parseFloat(form.MaxPrice.value);
 
         const updatedJob = {
-            _id,
+            // _id,
             email,
-            jobTitle: form.JobTitle.value,
-            deadline: form.deadline.value,
-            description: form.description.value,
-            category: form.category.value,
-            minPrice: parseFloat(form.MinPrice.value),
-            maxPrice: parseFloat(form.MaxPrice.value)
+            jobTitle: jobTitleUpdate,
+            // jobTitle: form.JobTitle.value,
+            deadline: deadlineUpdate,
+            // deadline: form.deadline.value,
+            description: descriptionUpdate,
+            // description: form.description.value,
+            category: categoryUpdate,
+            // category: form.category.value,
+            minPrice: minPriceUpdate,
+            // minPrice: parseFloat(form.MinPrice.value),
+            maxPrice: maxPriceUpdate
+            // maxPrice: parseFloat(form.MaxPrice.value)
         }
 
         // Output
-        console.log(updateThisJob)
+        console.log(updatedJob)
         // http://localhost:5000/api/v1/addJobs
-        axios.update("/addJobs", updatedJob)
+        // axios.update
+        axios.put(`/myPostedJobs/${id}`, updatedJob)
             .then(res => {
                 console.log(res.data)
                 if (res.data.acknowledged) {
-                    toast.success('Successfully Added!')
+                    if(res.data?.modifiedCount>0) {
+                        toast.success('Successfully Update!')
+                    }
+                    else if(res.data?.upsertedCount > 0 ) {
+                        toast.success('Successfully Update-Insert!')
+                    }
                 } else {
                     toast.error('Failed To Add!')
                 }
@@ -163,7 +176,6 @@ export default function UpdateMyPostedJobCard() {
                             className="select-none rounded-lg bg-green-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none w-full"
                             type="submit"
                             data-ripple-light="true"
-                        // onClick={handleUpdateJob}
 
                         >
                             Update

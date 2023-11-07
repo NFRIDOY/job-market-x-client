@@ -4,17 +4,37 @@ import useAxios from "../../hooks/useAxios";
 import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import LoadingAnimations from "../LoadingAnimations/LoadingAnimations";
+import toast from "react-hot-toast";
 
 
 export default function MyPostedJobsContainer() {
     const [postedJobData, setPostedJobData] = useState([])
     const axios = useAxios()
     const { user } = useAuth()
+    // const [postedJobData, setPostedJobData] = useState([])
+    
 
     console.log(user)
 
+    const handleDelete = (id) => {
+
+        axios.delete(`/myPostedJobs/${id}`)
+            .then((res) => {
+                console.log(res?.data)
+                console.log(myPostedJobs)
+                if (res?.data?.deletedCount) {
+                    toast.success("Deleted")
+                    const remaining = postedJobData.filter(postedJob => postedJob._id !== id)
+                    setPostedJobData(...remaining)
+                } else {
+                    toast.error("Delete Failed")
+                }
+                // setPostedJobData(res.data)
+            })
+    }
+
     const { isPending, error, data: myPostedJobs } = useQuery({
-        queryKey: ['PostedJobs', user],
+        queryKey: ['PostedJobs', user, postedJobData],
         queryFn: () =>
             axios.get(`/myPostedJobs?email=${user.email}&myJob=${true}`).then(
                 (res) => {
@@ -35,7 +55,7 @@ export default function MyPostedJobsContainer() {
         <div>
             <div className="grid grid-cols-1 md:grid-cols-2 md:grid-flow-row-dense md:gap-y-8 py-10">
                 {
-                    postedJobData?.map(postedJob => <MyPostedJobCard key={postedJob._id} postedJob={postedJob}></MyPostedJobCard>)
+                    postedJobData?.map(postedJob => <MyPostedJobCard key={postedJob._id} postedJob={postedJob} handleDelete={handleDelete}></MyPostedJobCard>)
                 }
             </div>
         </div>

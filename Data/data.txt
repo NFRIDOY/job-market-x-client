@@ -1,0 +1,289 @@
+_id
+6547df21c17a97234f3f21
+emailef
+"nfridossy@rid.2com"
+jobTitle
+"Front End Web Dev"
+deadline
+"2023-11-11"
+description
+"js"
+category
+"Web Development"
+minPrice
+50000
+maxPrice
+70000
+_id
+6547df5a3fdbb968ed6a21b8
+email
+"nfridossy@rid.2com"
+jobTitle
+"Front End Web Dev"
+deadline
+"2023-11-24"
+description
+"Javascript"
+category
+"Web Development"
+minPrice
+50000
+maxPrice
+70000
+_id
+6547df893fdbb968ed6a21b9
+email
+"nfridossy@rid.2com"
+jobTitle
+"Front End Web Dev"
+deadline
+"2023-11-24"
+description
+"Javascript"
+category
+"Web Development"
+minPrice
+50000
+maxPrice
+170000
+_id
+6547e02c3fdbb968ed6a21ba
+email
+"nfridossy@rid.2com"
+jobTitle
+"Adobe Expart"
+deadline
+"2023-11-15"
+description
+"Adobe Photo Shop"
+category
+"Graphics Design"
+minPrice
+55000
+maxPrice
+75000
+_id
+6547e0af3fdbb968ed6a21bb
+email
+"nfridossy@rid.2com"
+jobTitle
+"Photoshop Expart"
+deadline
+"2023-11-15"
+description
+"Adobe Photoshop"
+category
+"Graphics Design"
+minPrice
+35000
+maxPrice
+65000
+_id
+6547e3b93fdbb968ed6a21bc
+email
+"nf@rid.com"
+jobTitle
+"Digital Pro Marketer"
+deadline
+"2023-11-14"
+description
+"Digital Pro Marketer "
+category
+"Digital Marketing"
+minPrice
+50000
+maxPrice
+100000
+_id
+6547e3de3fdbb968ed6a21bd
+email
+"nf@rid.com"
+jobTitle
+"Digital Pro Marketer Expert"
+deadline
+"2023-11-14"
+description
+"Digital Pro Marketer "
+category
+"Digital Marketing"
+minPrice
+50000
+maxPrice
+60000
+_id
+6547e5eb3fdbb968ed6a21be
+email
+"nf@rid.com"
+jobTitle
+"HomePage (WordPress) Revamp || Website"
+deadline
+"2023-11-22"
+description
+"We’re looking for a skilled WordPress developer to revamp the homepage…"
+category
+"Web Development"
+minPrice
+50000
+maxPrice
+160000
+_id
+6547e5eb3fdbb968ed6a21bf
+email
+"nf@rid.com"
+jobTitle
+"HomePage (WordPress) Revamp || Website"
+deadline
+"2023-11-22"
+description
+"We’re looking for a skilled WordPress developer to revamp the homepage…"
+category
+"Web Development"
+minPrice
+50000
+maxPrice
+160000
+_id
+6547e6153fdbb968ed6a21c0
+email
+"nf@rid.com"
+jobTitle
+"development source code analysis tools"
+deadline
+"2023-11-22"
+description
+"I am looking for a creative and talented freelancer to help me with a …"
+category
+"Web Development"
+minPrice
+140000
+maxPrice
+150000
+_id
+6547e6483fdbb968ed6a21c1
+email
+"nf@rid.com"
+jobTitle
+"WooCommerce Step by Step"
+deadline
+"2024-06-19"
+description
+"The customer selects the course in which he/she wants to enroll. The c…"
+category
+"Web Development"
+minPrice
+140000
+maxPrice
+150000
+_id
+6547e6713fdbb968ed6a21c2
+email
+"nf@rid.com"
+jobTitle
+"Virtual Assistant / Research Assistant"
+deadline
+"2024-06-10"
+description
+"Job Description:
+I am seeking a Virtual Assistant with a keen business…"
+category
+"Digital Marketing"
+minPrice
+140000
+maxPrice
+200000
+_id
+6547e6c13fdbb968ed6a21c3
+email
+"nf@rid.com"
+jobTitle
+"Travel Rewards Writer"
+deadline
+"2024-06-10"
+description
+"Flytrippers is not just another employer. We are a dream come true for…"
+category
+"Digital Marketing"
+minPrice
+100000
+maxPrice
+200000
+_id
+6547e6d13fdbb968ed6a21c4
+email
+"nf@rid.com"
+jobTitle
+"Travel Rewards Writer Marketer"
+deadline
+"2024-06-30"
+description
+"Flytrippers is not just another employer. We are a dream come true for…"
+category
+"Digital Marketing"
+minPrice
+100000
+maxPrice
+200000
+_id
+6547e73f3fdbb968ed6a21c5
+email
+"nfridoy@gmail.com"
+jobTitle
+"Logo design"
+deadline
+""
+description
+"I am looking for a talented designer to create the perfect logo for my…"
+category
+"Graphics Design"
+minPrice
+50000
+maxPrice
+100000
+_id
+6547e78d3fdbb968ed6a21c7
+email
+"nfridoy@gmail.com"
+jobTitle
+"Enhanced Logo design for business card with business card format"
+deadline
+"2023-12-02"
+description
+"I am looking for a talented designer to create an enhanced logo for my…"
+category
+"Graphics Design"
+minPrice
+50000
+maxPrice
+70000
+_id
+6547e78f3fdbb968ed6a21c8
+email
+"nfridoy@gmail.com"
+jobTitle
+"Enhanced Logo design for business card with business card format"
+deadline
+"2023-12-02"
+description
+"I am looking for a talented designer to create an enhanced logo for my…"
+category
+"Graphics Design"
+minPrice
+50000
+maxPrice
+70000
+_id
+6547e7cf3fdbb968ed6a21c9
+email
+"nfridoy@gmail.com"
+jobTitle
+"Book cover design"
+deadline
+"2023-12-02"
+description
+"I am looking for a skilled Book Cover Designer to create an effective …"
+category
+"Graphics Design"
+minPrice
+50000
+maxPrice
+55000
