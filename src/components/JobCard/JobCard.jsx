@@ -71,7 +71,7 @@ export default function JobCard({ postedJob }) {
             <div className="relative flex flex-col text-gray-700 bg-white shadow-md w-96 rounded-3xl bg-clip-border h-fit border-2">
                 <div className="p-6">
                     <div>
-                        <h5 className="block mb-2 font-sans text-2xl antialiased font-bold leading-snug tracking-normal text-blue-gray-900 ">
+                        <h5 className="block mb-2 font-sans text-2xl antialiased font-bold leading-snug tracking-normal text-blue-gray-900 capitalize">
                             {jobTitle}
                         </h5>
                         <h5>

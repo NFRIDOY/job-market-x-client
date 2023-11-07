@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 
 export default function Login() {
@@ -21,7 +22,7 @@ export default function Login() {
                 // Signed in 
                 const user = userCredential.user;
                 setUser(user)
-                alert("User Login")
+                toast.success("User Login")
                 console.log(user)
                 // console.log(location.pathname)
                 console.log(location?.state)
@@ -30,7 +31,7 @@ export default function Login() {
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                alert("User Login Failed")
+                toast.error("User Login Failed")
                 console.log(" Error on CreateUser ", errorCode)
                 console.log(" Error on CreateUser ", errorMessage)
             });
@@ -46,7 +47,7 @@ export default function Login() {
                 const user = result.user;
                 // IdP data available using getAdditionalUserInfo(result)
                 // ...
-                alert("User Login Using Google")
+                toast.success("User Login Using Google")
                 setUser(user)
                 console.log(user)
                 // console.log(location.pathname)
@@ -61,7 +62,7 @@ export default function Login() {
                 // The AuthCredential type that was used.
                 // const credential = GoogleAuthProvider.credentialFromError(error);
                 // ...
-                alert("User Login Failed")
+                toast.error("User Login Failed")
                 console.log(" Error on CreateUser ", errorCode)
                 console.log(" Error on CreateUser ", errorMessage)
             });
