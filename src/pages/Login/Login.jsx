@@ -20,18 +20,18 @@ export default function Login() {
     }, [])
 
     // get Access Token
-    const getToken = () => {
-        // axios.post('http://localhost:5000/api/v1/jwt', user, {withCredentials: true} )
-        axios.post('/jwt', user )
-            .then(res => {
-                console.log(res.data)
-                if (res.data?.message) {
-                    console.log("Success ::> True")
-                    // toast.success("Success")
-                    toast.success("Got The Token")
-                }
-            })
-    }
+    // const getToken = () => {
+    //     // axios.post('http://localhost:5000/api/v1/jwt', user, {withCredentials: true} )
+    //     axios.post('/jwt', user )
+    //         .then(res => {
+    //             console.log(res.data)
+    //             if (res.data?.message) {
+    //                 console.log("Success ::> True")
+    //                 // toast.success("Success")
+    //                 toast.success("Got The Token")
+    //             }
+    //         })
+    // }
 
 
     const handleLogin = (e) => {
@@ -52,7 +52,7 @@ export default function Login() {
                 console.log(user)
                 // console.log(location.pathname)
                 console.log(location?.state)
-                getToken()
+                // getToken()
                 navigate(location?.state ? location?.state : '/')
             })
             .catch((error) => {
@@ -76,7 +76,7 @@ export default function Login() {
                 // ...
                 setUser(user)
                 console.log(user)
-                getToken()
+                // getToken()
                 toast.success("User Login Using Google")
                 // console.log(location.pathname)
                 console.log(location?.state)

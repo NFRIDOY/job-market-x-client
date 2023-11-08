@@ -2,10 +2,13 @@ import { createContext, useEffect, useState } from "react"
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signInWithPopup, GoogleAuthProvider, signOut, updateProfile } from "firebase/auth";
 import app from "../firebase/firebase.config";
 import toast from "react-hot-toast";
+import useAxios from "../hooks/useAxios";
 
 export const AuthContext = createContext(null)
 
 export default function AuthProvider({ children }) {
+
+    const axios = useAxios()
 
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
@@ -31,7 +34,7 @@ export default function AuthProvider({ children }) {
 
     const logOut = () => {
         setLoading(true)
-        return  signOut(auth)
+        return signOut(auth)
         // signOut(auth).then(() => {
         //     // Sign-out successful.
         //     toast.success("Sign-out successful.")
@@ -50,16 +53,27 @@ export default function AuthProvider({ children }) {
             console.log(currentUser)
             setUser(currentUser)
             setLoading(false)
-            // if (currentUser) {
-            //     // User is signed in, see docs for a list of available properties
-            //     // https://firebase.google.com/docs/reference/js/auth.user
-            //     const uid = currentUser.uid;
+            if (currentUser) {
+                // User is signed in, see docs for a list of available properties
+                // https://firebase.google.com/docs/reference/js/auth.user
+                const loggedInUser = {email: currentUser.email};
 
-            //     console.log(user)
-            // } else {
-            //     // User is signed out
+                console.log(loggedInUser)
 
-            // }
+                axios.post('/jwt', loggedInUser)
+                    .then(res => {
+                        console.log(res.data)
+                        if (res.data?.message) {
+                            console.log("Success ::> True. Token Set")
+                            // toast.success("Success")
+                            toast.success("Got The Token")
+                        }
+                    })
+            } else {
+                // User is signed out
+                toast.error("User Signed Out!!!")
+
+            }
         })
 
         return () => {
