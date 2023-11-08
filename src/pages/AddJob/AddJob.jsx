@@ -34,7 +34,7 @@ export default function AddJob() {
         // Output
         console.log(newJob)
         // http://localhost:5000/api/v1/addJobs
-        axios.post("http://localhost:5000/api/v1/addJobs", newJob)
+        axios.post("/addJobs", newJob)
             .then(res => {
                 console.log(res.data)
                 if (res.data.acknowledged) {

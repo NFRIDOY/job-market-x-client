@@ -5,6 +5,7 @@ import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import LoadingAnimations from "../LoadingAnimations/LoadingAnimations";
 import toast from "react-hot-toast";
+import swal from "sweetalert";
 
 
 export default function MyPostedJobsContainer() {
@@ -12,11 +13,25 @@ export default function MyPostedJobsContainer() {
     const axios = useAxios()
     const { user } = useAuth()
     // const [postedJobData, setPostedJobData] = useState([])
-    
+
 
     console.log(user)
 
     const handleDelete = (id) => {
+
+        //  Confimation 
+        // swal({
+        //     title: "Are you sure?",
+        //     text: "You will not be able to recover this imaginary file!",
+        //     type: "warning",
+        //     showCancelButton: true,
+        //     confirmButtonColor: "#DD6B55",
+        //     confirmButtonText: "Yes, delete it!",
+        //     closeOnConfirm: false
+        // },
+        //     function () {
+        //         swal("Deleted!", "Your imaginary file has been deleted.", "success");
+        //     });
 
         axios.delete(`/myPostedJobs/${id}`)
             .then((res) => {
