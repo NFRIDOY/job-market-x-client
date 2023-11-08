@@ -1,13 +1,32 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import useAxios from "../../hooks/useAxios";
 import toast from "react-hot-toast";
+import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 export default function JobDetails() {
     const axios = useAxios();
     const { user } = useAuth();
+    const { id } = useParams();
+    console.log(id)
 
-    const jobloaderData = useLoaderData();
+    // const jobloaderData = useLoaderData();
+    const [jobloaderData, setJobloaderData] = useState([])
+
+    const { isPending, error, data: AllJobs } = useQuery({
+        queryKey: ['AllJobs', user],
+        queryFn: () =>
+            // axios.get(`/allJobs`).then(
+            axios.get(`/allJobs?email=${user.email}`).then(
+                (res) => {
+                    console.log(res.data)
+                    console.log(AllJobs)
+                    setJobloaderData(res.data)
+                },
+
+            ),
+    })
 
     const {
         // _id,

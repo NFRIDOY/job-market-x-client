@@ -33,7 +33,7 @@ const router = createBrowserRouter([
             {
                 path: "/Jobs/:id",
                 // loader: ({ params }) => fetch(`http://localhost:5000/api/v1/allJobs/${params.id}`),
-                loader: ({ params }) => fetch(`https://job-market-x-server-ctgu3d28z-nfridoy.vercel.app/api/v1/allJobs/${params.id}`),
+                // loader: ({ params }) => fetch(`https://job-market-x-server-ctgu3d28z-nfridoy.vercel.app/api/v1/allJobs/${params.id}`),
                 // loader: ({ params }) => axios.get(`/allJobs/${params.id}`),
                 element: <JobDetails></JobDetails>,
                 errorElement: <Error></Error>,
