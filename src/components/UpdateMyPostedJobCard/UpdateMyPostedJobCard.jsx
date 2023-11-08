@@ -37,7 +37,7 @@ export default function UpdateMyPostedJobCard() {
     // })
 
     useEffect(() => {
-        axios.get(`/myPostedJobs/${id}`)
+        axios.get(`/myPostedJobs/${id}?email=${user.email}`)
             .then(res => {
                 console.log(res.data)
                 setUpdateThisJob(res.data)
