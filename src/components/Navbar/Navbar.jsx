@@ -9,6 +9,7 @@ export default function Navbar() {
     // console.log(user)
     // console.log(user?.photoURL)
     const handleLogOut = () => {
+        
         logOut()
 
     }
