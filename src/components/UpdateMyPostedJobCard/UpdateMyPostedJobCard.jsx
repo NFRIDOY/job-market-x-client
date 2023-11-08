@@ -37,7 +37,7 @@ export default function UpdateMyPostedJobCard() {
     // })
 
     useEffect(() => {
-        axios.get(`/myPostedJobs/${id}?${user.email}`)
+        axios.get(`/myPostedJobs/${id}`)
             .then(res => {
                 console.log(res.data)
                 setUpdateThisJob(res.data)
@@ -128,7 +128,7 @@ export default function UpdateMyPostedJobCard() {
     return (
         <div className="flex flex-col md:flex-row gap-x-10 py-12">
             <div className="md:w-1/2 ">
-                <h1 className=" font-bold text-3xl md:text-7xl text-center w-full py-7">
+                <h1 className=" font-bold text-3xl md:text-7xl text-center w-full pb-10 md:py-1">
                     Update Your Posted <span className="text-orange-500">Job</span> Here
                 </h1>
             </div>
