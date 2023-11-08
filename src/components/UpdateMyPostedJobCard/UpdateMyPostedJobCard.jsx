@@ -7,10 +7,10 @@ import { useQuery } from "@tanstack/react-query";
 
 
 export default function UpdateMyPostedJobCard() {
-    
+
     useEffect(() => {
         const routeName = location.pathname.includes('/MyPostedJobs/') ? 'Update MyPosted Job' : "";
-        
+
         document.title = `Job Market X | ${routeName}`;
         console.log(document.title)
     }, [])
@@ -37,11 +37,11 @@ export default function UpdateMyPostedJobCard() {
     // })
 
     useEffect(() => {
-        axios.get(`/myPostedJobs/${id}`)
-        .then(res => {
-            console.log(res.data)
-            setUpdateThisJob(res.data)
-        })
+        axios.get(`/myPostedJobs/${id}?${user.email}`)
+            .then(res => {
+                console.log(res.data)
+                setUpdateThisJob(res.data)
+            })
     }, [user])
 
     // axios.get(`/MyPostedJobs/${id}`)
@@ -100,10 +100,10 @@ export default function UpdateMyPostedJobCard() {
             .then(res => {
                 console.log(res.data)
                 if (res.data.acknowledged) {
-                    if(res.data?.modifiedCount>0) {
+                    if (res.data?.modifiedCount > 0) {
                         toast.success('Successfully Update!')
                     }
-                    else if(res.data?.upsertedCount > 0 ) {
+                    else if (res.data?.upsertedCount > 0) {
                         toast.success('Successfully Update-Insert!')
                     }
                 } else {
@@ -126,11 +126,13 @@ export default function UpdateMyPostedJobCard() {
 
     }
     return (
-        <div>UpdateMyPostedJobCard
-            <div>
-
+        <div className="flex flex-col md:flex-row gap-x-10 py-12">
+            <div className="md:w-1/2 ">
+                <h1 className=" font-bold text-3xl md:text-7xl text-center w-full py-7">
+                    Update Your Posted <span className="text-orange-500">Job</span> Here
+                </h1>
             </div>
-            <div>
+            <div className="md:w-1/2 px-3">
                 <form className="w-full space-y-3 " onSubmit={handleUpdateJob}>
                     <div className="w-full">
                         <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Email <span>(Read Only)</span></label>
