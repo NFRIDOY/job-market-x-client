@@ -51,7 +51,8 @@ export default function MyPostedJobsContainer() {
     const { isPending, error, data: myPostedJobs } = useQuery({
         queryKey: ['PostedJobs', user, postedJobData],
         queryFn: () =>
-            axios.get(`/myPostedJobs?email=${user.email}&myJob=${true}`).then(
+            // axios.get(`/myPostedJobs?email=${user.email}&myJob=${true}`).then(
+            axios.get(`/myPostedJobs?email=${user.email}`).then(
                 (res) => {
                     console.log(res.data)
                     console.log(myPostedJobs)
@@ -68,10 +69,13 @@ export default function MyPostedJobsContainer() {
 
     return (
         <div>
-            <div className="grid grid-cols-1 md:grid-cols-2 md:grid-flow-row-dense md:gap-y-8 py-10">
-                {
-                    postedJobData?.map(postedJob => <MyPostedJobCard key={postedJob._id} postedJob={postedJob} handleDelete={handleDelete}></MyPostedJobCard>)
-                }
+            <div className="mx-auto md:w-fit lg:w-auto">
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-flow-row-dense md:gap-y-8 py-10">
+                    {
+                        postedJobData?.map(postedJob => <MyPostedJobCard key={postedJob._id} postedJob={postedJob} handleDelete={handleDelete}></MyPostedJobCard>)
+                    }
+                </div>
             </div>
         </div>
     )
