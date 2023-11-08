@@ -14,3 +14,8 @@ git push -u origin main
 git remote add origin https://github.com/Porgramming-Hero-web-course/b8a11-client-side-NFRIDOY.git
 git branch -M main
 git push -u origin main
+
+Submition
+Clien-Side GitHub Repository: https://github.com/Porgramming-Hero-web-course/b8a11-client-side-NFRIDOY
+Server-Side GitHub Repository: https://github.com/Porgramming-Hero-web-course/b8a11-server-side-NFRIDOY
+Live Link: https://job-market-x.web.app
