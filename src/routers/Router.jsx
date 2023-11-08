@@ -27,7 +27,7 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                
+
                 errorElement: <Error></Error>,
             },
             {
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
                 // loader: ({ params }) => fetch(`http://localhost:5000/api/v1/allJobs/${params.id}`),
                 // loader: ({ params }) => fetch(`https://job-market-x-server-ctgu3d28z-nfridoy.vercel.app/api/v1/allJobs/${params.id}`),
                 // loader: ({ params }) => axios.get(`/allJobs/${params.id}`),
-                element: <JobDetails></JobDetails>,
+                element: <PrivateRoute><JobDetails></JobDetails></PrivateRoute>,
                 errorElement: <Error></Error>,
             },
             {

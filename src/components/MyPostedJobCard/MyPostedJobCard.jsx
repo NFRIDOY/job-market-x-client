@@ -69,7 +69,7 @@ export default function MyPostedJobCard({ postedJob, handleDelete }) {
     // }
     return (
         <div>
-            <div className="relative flex flex-col text-gray-700 bg-white shadow-md w-[600px] rounded-xl bg-clip-border space-y-4 border-2 ">
+            <div className="relative flex flex-col text-gray-700 bg-white shadow-md lg:w-[600px] rounded-xl bg-clip-border space-y-4 border-2 ">
                 <div className="p-6 space-y-4">
                     <div className="flex justify-between items-center space-y-4">
                         <h5 className="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900 uppercase">

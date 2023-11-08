@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 
 export default function JobDetails() {
     useEffect(() => {
-        const routeName = location.pathname.includes('/Jobs/')  ? 'Job Bid' : "";
+        const routeName = location.pathname.includes('/Jobs/') ? 'Job Bid' : "";
 
         document.title = `Job Market X | ${routeName}`;
         console.log(document.title)
@@ -37,7 +37,7 @@ export default function JobDetails() {
 
     const {
         // _id,
-        email,
+        email, // emailOwner  // Job Owner
         jobTitle,
         deadline,
         description,
@@ -105,7 +105,7 @@ export default function JobDetails() {
     // })
 
     return (
-        <div className="flex flex-col md:flex-row justify-between">
+        <div className="flex flex-col md:flex-row justify-between py-12">
             <div className="md:w-1/2 px-6">
                 <h1 className="text-left text-6xl font-semibold py-6">
                     Job Details
@@ -323,16 +323,29 @@ export default function JobDetails() {
 
                     <div className="w-full">
                         {/* <label htmlFor="yyyyy" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Job Title</label> */}
-                        <button
-                            type="submit"
-                            name="submit"
-                            id="submit"
-                            className="w-full text-white bg-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary dark:focus:ring-primary-800 uppercase"
-                            placeholder="Job Title"
+                        {
+                            email === user.email ? <button
+                                // disabled
+                                type="button"
+                                // name="submit"
+                                // id="submit"
+                                onClick={() => toast.error("Can't Bid Your Own Job")}
+                                className=" w-full text-white bg-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary dark:focus:ring-primary-800 uppercase"
+                                placeholder="Job Title"
 
-                        >
-                            Bid on the project
-                        </button>
+                            >
+                                Bid on the project
+                            </button> : <button
+                                type="submit"
+                                name="submit"
+                                id="submit"
+                                className="w-full text-white bg-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary dark:focus:ring-primary-800 uppercase"
+                                placeholder="Job Title"
+
+                            >
+                                Bid on the project
+                            </button>
+                        }
                     </div>
                 </form>
             </div>

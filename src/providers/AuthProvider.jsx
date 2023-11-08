@@ -7,7 +7,7 @@ export const AuthContext = createContext(null)
 
 export default function AuthProvider({ children }) {
 
-    const [user, setUser] = useState()
+    const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
 
     const auth = getAuth(app);
@@ -31,20 +31,23 @@ export default function AuthProvider({ children }) {
 
     const logOut = () => {
         setLoading(true)
-        signOut(auth).then(() => {
-            // Sign-out successful.
-            toast.success("Sign-out successful.")
-        }).catch((error) => {
-            // An error happened.
-            toast.error("Sign-out Failes. Error")
-            console.log(error)
-        });
+        return  signOut(auth)
+        // signOut(auth).then(() => {
+        //     // Sign-out successful.
+        //     toast.success("Sign-out successful.")
+        // }).catch((error) => {
+        //     // An error happened.
+        //     toast.error("Sign-out Failes. Error")
+        //     console.log(error)
+        // });
 
     }
 
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+            console.log("unSubscribe")
+            console.log(currentUser)
             setUser(currentUser)
             setLoading(false)
             // if (currentUser) {
@@ -74,10 +77,10 @@ export default function AuthProvider({ children }) {
             .then(() => {
                 // Profile updated!
                 // ...
-                toast.success("Profile updated!")
                 // toast.success(user.displayName)
                 // toast.success(user.photoURL)
                 setUser(user)
+                toast.success("Profile updated!")
                 logOut()
 
 

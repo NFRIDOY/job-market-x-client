@@ -93,7 +93,6 @@ export default function Login() {
                 toast.error("User Login Failed")
                 console.log(" Error on CreateUser ", errorCode)
                 console.log(" Error on CreateUser ", errorMessage)
-                return;
             });
     }
     return (

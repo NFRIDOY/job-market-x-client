@@ -13,7 +13,7 @@ export default function Registration() {
     console.log(document.title)
 }, [])
 
-  const { user, setUser, createUserEmailPass, updateUser } = useAuth()
+  const { user, setUser, createUserEmailPass, updateUser, logOut } = useAuth()
 
   const handleReg = e => {
     e.preventDefault();
@@ -32,12 +32,22 @@ export default function Registration() {
       .then((userCredential) => {
         // Signed up 
         const user = userCredential.user;
-        console.log("User Creds", user)
+        // console.log("User Creds", user)
+        console.log(user)
         setUser(user)
         
-        toast.success("User Created" )
-        console.log(user)
+        toast.success("User Created")
+        // console.log(user)
         updateUser(name, photoURL)
+        logOut()
+            .then(() => {
+                // Sign-out successful.
+                toast.success("Sign-out successful.")
+            }).catch((error) => {
+                // An error happened.
+                toast.error("Sign-out Failes. Error")
+                console.log(error)
+            });
         
       })
       .catch((error) => {
@@ -45,6 +55,7 @@ export default function Registration() {
         const errorMessage = error.message;
         console.log(" Error on CreateUser ",errorCode)
         console.log(" Error on CreateUser ",errorMessage)
+        toast.error("User Creation Error")
       });
 
 

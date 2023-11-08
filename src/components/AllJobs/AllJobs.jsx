@@ -12,13 +12,11 @@ export default function AllJobs() {
     const axios = useAxios()
     const { user } = useAuth()
 
-    console.log(user)
-
     const { isPending, error, data: AllJobs } = useQuery({
-        queryKey: ['AllJobs', user],
+        queryKey: ['AllJobs'],
         queryFn: () =>
-            // axios.get(`/allJobs`).then(
-            axios.get(`/allJobs?email=${user.email}`).then(
+            axios.get(`/allJobs`).then(
+                // axios.get(`/allJobs?email=${user.email}`).then(
                 (res) => {
                     console.log(res.data)
                     console.log(AllJobs)

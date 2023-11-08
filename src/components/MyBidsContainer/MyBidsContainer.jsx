@@ -14,25 +14,25 @@ export default function MyBidsContainer() {
 
     const handleComplete = (id) => {
         axios.put(`/myBids/${id}`, { status: "Complete" })
-        .then(res => {
-            console.log(res.data)
-            toast.success("Complete")
-            // toast.success("Rejected")
-            toast.success("Job Completed")
-            setIsComplete(!isComplete)
-        })
+            .then(res => {
+                console.log(res.data)
+                toast.success("Complete")
+                // toast.success("Rejected")
+                toast.success("Job Completed")
+                setIsComplete(!isComplete)
+            })
     }
-    const handleDelete = (id) => {
-        axios.put(`/myBids/${id}`, { status: "Complete" })
-        .then(res => {
-            console.log(res.data)
-            toast.success("Delete Succesfull")
-            // toast.success("Rejected")
-            toast.success("Job Completed")
-            setIsComplete(!isComplete)
-        })
-        
-    }
+    // const handleDelete = (id) => {
+    //     axios.put(`/myBids/${id}`, { status: "Complete" })
+    //     .then(res => {
+    //         console.log(res.data)
+    //         toast.success("Delete Succesfull")
+    //         // toast.success("Rejected")
+    //         toast.success("Job Completed")
+    //         setIsComplete(!isComplete)
+    //     })
+
+    // }
 
     const isReqTrue = 0;
 
@@ -86,7 +86,7 @@ export default function MyBidsContainer() {
                                                     onClick={() => handleComplete(bidJob._id)}>
                                                     Complete
                                                 </button> : bidJob?.status === "Canceled" ? <button
-                                                    onClick={() => handleDelete(bidJob?._id)}
+                                                    // onClick={() => handleDelete(bidJob?._id)}
                                                 >Delete</button> :
                                                     <button disabled className="btn btn-sm btn-neutral">
                                                         Uncomplete

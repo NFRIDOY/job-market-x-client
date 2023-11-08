@@ -1,6 +1,7 @@
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 
 export default function Navbar() {
@@ -9,8 +10,16 @@ export default function Navbar() {
     // console.log(user)
     // console.log(user?.photoURL)
     const handleLogOut = () => {
-        
+
         logOut()
+            .then(() => {
+                // Sign-out successful.
+                toast.success("Sign-out successful.")
+            }).catch((error) => {
+                // An error happened.
+                toast.error("Sign-out Failes. Error")
+                console.log(error)
+            });
 
     }
     return (
