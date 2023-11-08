@@ -26,9 +26,11 @@ export default function Registration() {
         const user = userCredential.user;
         console.log("User Creds", user)
         setUser(user)
-        updateUser(name, photoURL)
+        
         toast.success("User Created" )
         console.log(user)
+        updateUser(name, photoURL)
+        
       })
       .catch((error) => {
         const errorCode = error.code;

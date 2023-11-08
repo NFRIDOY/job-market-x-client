@@ -14,6 +14,7 @@ import PrivateRoute from "./PrivateRoute";
 import UpdateMyPostedJobCard from "../components/UpdateMyPostedJobCard/UpdateMyPostedJobCard";
 import useAxios from "../hooks/useAxios";
 import JobDetails from "../components/JobDetails/JobDetails";
+import Profile from "../pages/Profile/Profile";
 
 // const axios = useAxios()
 const router = createBrowserRouter([
@@ -29,7 +30,8 @@ const router = createBrowserRouter([
             },
             {
                 path: "/Jobs/:id",
-                loader: ({ params }) => fetch(`http://localhost:5000/api/v1/allJobs/${params.id}`),
+                // loader: ({ params }) => fetch(`http://localhost:5000/api/v1/allJobs/${params.id}`),
+                loader: ({ params }) => fetch(`https://job-market-x-server-ctgu3d28z-nfridoy.vercel.app/api/v1/allJobs/${params.id}`),
                 // loader: ({ params }) => axios.get(`/allJobs/${params.id}`),
                 element: <JobDetails></JobDetails>,
                 // error// element: <Error></Error>,
@@ -72,7 +74,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/profile",
-                // element: <PrivateRoutes><Profile></Profile></PrivateRoutes>,
+                element: <PrivateRoute><Profile></Profile></PrivateRoute>,
                 // error// element: <Error></Error>,
             },
 

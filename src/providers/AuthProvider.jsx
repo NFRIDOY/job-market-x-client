@@ -13,7 +13,7 @@ export default function AuthProvider({ children }) {
     const auth = getAuth(app);
     const googleProvider = new GoogleAuthProvider();
 
-    
+
 
     const createUserEmailPass = (email, password) => {
         setLoading(true)
@@ -67,23 +67,26 @@ export default function AuthProvider({ children }) {
     //Update Ueser
     const updateUser = (name, photoURL) => {
         updateProfile(auth.currentUser, {
-            displayName : name,
-            photoURL : photoURL,
+            displayName: name,
+            photoURL: photoURL,
             // emailVerified : user.emailVerified
-        }).then(() => {
-            // Profile updated!
-            // ...
-            toast.success("Profile updated!")
-            toast.success(user.displayName)
-            toast.success(user.photoURL)
-            
-            
-        }).catch((error) => {
-            // An error occurred
-            // ...
-            toast.success("Profile updated! Failed")
-            console.log(error)
-        });
+        })
+            .then(() => {
+                // Profile updated!
+                // ...
+                toast.success("Profile updated!")
+                // toast.success(user.displayName)
+                // toast.success(user.photoURL)
+                setUser(user)
+                logOut()
+
+
+            }).catch((error) => {
+                // An error occurred
+                // ...
+                toast.success("Profile updated! Failed")
+                console.log(error)
+            });
         if (user !== null) {
             // The user object has basic properties such as display name, email, etc.
             const displayName = user.displayName;
@@ -91,6 +94,7 @@ export default function AuthProvider({ children }) {
             const photoURL = user.photoURL;
             const emailVerified = user.emailVerified;
 
+            setUser(user)
             // The user's ID, unique to the Firebase project. Do NOT use
             // this value to authenticate with your backend server, if
             // you have one. Use User.getToken() instead.
