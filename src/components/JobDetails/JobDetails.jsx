@@ -25,7 +25,7 @@ export default function JobDetails() {
         queryKey: ['AllJobs', user],
         queryFn: () =>
             // axios.get(`/allJobs`).then(
-            axios.get(`/allJobs?email=${user.email}`).then(
+            axios.get(`/allJobs/${id}?email=${user.email}`).then(
                 (res) => {
                     console.log(res.data)
                     console.log(AllJobs)
