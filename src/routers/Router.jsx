@@ -15,18 +15,20 @@ import UpdateMyPostedJobCard from "../components/UpdateMyPostedJobCard/UpdateMyP
 import useAxios from "../hooks/useAxios";
 import JobDetails from "../components/JobDetails/JobDetails";
 import Profile from "../pages/Profile/Profile";
+import Error from "../components/Error/Error";
 
 // const axios = useAxios()
 const router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout></MainLayout>,
-        // error// element: <Error></Error>,
+        errorElement: <Error></Error>,
         children: [
             {
                 path: "/",
                 element: <Home></Home>,
-                // error// element: <Error></Error>,
+                
+                errorElement: <Error></Error>,
             },
             {
                 path: "/Jobs/:id",
@@ -34,48 +36,48 @@ const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`https://job-market-x-server-ctgu3d28z-nfridoy.vercel.app/api/v1/allJobs/${params.id}`),
                 // loader: ({ params }) => axios.get(`/allJobs/${params.id}`),
                 element: <JobDetails></JobDetails>,
-                // error// element: <Error></Error>,
+                errorElement: <Error></Error>,
             },
             {
                 path: "/AddJob",
                 element: <PrivateRoute><AddJob></AddJob></PrivateRoute>,
-                // error// element: <Error></Error>,
+                errorElement: <Error></Error>,
             },
             {
                 path: "/MyPostedJobs",
                 element: <PrivateRoute><MyPostedJobs></MyPostedJobs></PrivateRoute>,
-                // error// element: <Error></Error>,
+                errorElement: <Error></Error>,
             },
             {
                 path: "/MyPostedJobs/:id",
                 // loader: fetch(`/MyPostedJobs/${prams.id}`),
                 element: <PrivateRoute><UpdateMyPostedJobCard></UpdateMyPostedJobCard></PrivateRoute>,
-                // error// element: <Error></Error>,
+                errorElement: <Error></Error>,
             },
             {
                 path: "/MyBids",
                 element: <PrivateRoute><MyBids></MyBids></PrivateRoute>,
-                // error// element: <Error></Error>,
+                errorElement: <Error></Error>,
             },
             {
                 path: "/BidRequests",
                 element: <PrivateRoute><BidRequests></BidRequests></PrivateRoute>,
-                // error// element: <Error></Error>,
+                errorElement: <Error></Error>,
             },
             {
                 path: "/Registration",
                 element: <Registration></Registration>,
-                // error// element: <Error></Error>,
+                errorElement: <Error></Error>,
             },
             {
                 path: "/Login",
                 element: <Login></Login>,
-                // error// element: <Error></Error>,
+                errorElement: <Error></Error>,
             },
             {
                 path: "/profile",
                 element: <PrivateRoute><Profile></Profile></PrivateRoute>,
-                // error// element: <Error></Error>,
+                errorElement: <Error></Error>,
             },
 
         ],
