@@ -24,11 +24,11 @@ export default function Login() {
         // axios.post('http://localhost:5000/api/v1/jwt', user, {withCredentials: true} )
         axios.post('/jwt', user )
             .then(res => {
-                alert("Token")
                 console.log(res.data)
                 if (res.data?.message) {
                     console.log("Success ::> True")
-                    toast.success("Success")
+                    // toast.success("Success")
+                    toast.success("Got The Token")
                 }
             })
     }
