@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query"
 import useAuth from "../../hooks/useAuth"
 import useAxios from "../../hooks/useAxios"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import MyPostedJobCard from "../../components/MyPostedJobCard/MyPostedJobCard"
 import MyPostedJobsContainer from "../../components/MyPostedJobsContainer/MyPostedJobsContainer"
 
@@ -9,7 +9,12 @@ import MyPostedJobsContainer from "../../components/MyPostedJobsContainer/MyPost
 
 export default function MyPostedJobs() {
 
+    useEffect(() => {
+        const routeName = location.pathname === '/MyPostedJobs' ? 'My Posted Jobs' : "";
 
+        document.title = `Job Market X | ${routeName}`;
+        console.log(document.title)
+    }, [])
 
 
 

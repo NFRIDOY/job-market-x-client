@@ -1,9 +1,17 @@
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import { useEffect } from "react";
 
 
 export default function Login() {
+
+    useEffect(() => {
+        const routeName = location.pathname === '/Login' ? 'Login' : "";
+        
+        document.title = `Job Market X | ${routeName}`;
+        console.log(document.title)
+    }, [])
 
     const { user, setUser, createUserEmailPass, signInEmailPass, googleSignIn } = useAuth()
     const navigate = useNavigate()

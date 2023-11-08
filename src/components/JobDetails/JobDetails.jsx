@@ -2,10 +2,17 @@ import { useLoaderData, useParams } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import useAxios from "../../hooks/useAxios";
 import toast from "react-hot-toast";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 export default function JobDetails() {
+    useEffect(() => {
+        const routeName = location.pathname.includes('/Jobs/')  ? 'Job Bid' : "";
+
+        document.title = `Job Market X | ${routeName}`;
+        console.log(document.title)
+    }, [])
+
     const axios = useAxios();
     const { user } = useAuth();
     const { id } = useParams();

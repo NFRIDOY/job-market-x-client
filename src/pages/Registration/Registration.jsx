@@ -1,9 +1,17 @@
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import { useEffect } from "react";
 
 
 export default function Registration() {
+
+  useEffect(() => {
+    const routeName = location.pathname === '/Registration' ? 'Registration' : "";
+    
+    document.title = `Job Market X | ${routeName}`;
+    console.log(document.title)
+}, [])
 
   const { user, setUser, createUserEmailPass, updateUser } = useAuth()
 

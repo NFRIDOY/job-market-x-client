@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
 import f404 from '../../assets/images/7aqcppklh6bexoa70320.webp'
+import { useEffect } from 'react';
 
 export default function Error() {
+    
     return (
         <div className='flex flex-col justify-center items-center'>
             <div>

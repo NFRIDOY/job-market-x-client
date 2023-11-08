@@ -7,6 +7,14 @@ import { useQuery } from "@tanstack/react-query";
 
 
 export default function UpdateMyPostedJobCard() {
+    
+    useEffect(() => {
+        const routeName = location.pathname.includes('/MyPostedJobs/') ? 'Update MyPosted Job' : "";
+        
+        document.title = `Job Market X | ${routeName}`;
+        console.log(document.title)
+    }, [])
+
     const [updateThisJob, setUpdateThisJob] = useState({})
     const { id } = useParams()
 

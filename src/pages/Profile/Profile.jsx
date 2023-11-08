@@ -1,7 +1,15 @@
+import { useEffect } from "react";
 import useAuth from "../../hooks/useAuth"
 
 
 export default function Profile() {
+
+    useEffect(() => {
+        const routeName = location.pathname === '/profile' ? 'Profile' : "";
+        
+        document.title = `Job Market X | ${routeName}`;
+        console.log(document.title)
+    }, [])
 
     const { user, setUser, updateUser } = useAuth()
 

@@ -1,11 +1,19 @@
 import toast from "react-hot-toast";
 import useAuth from "../../hooks/useAuth"
 import useAxios from "../../hooks/useAxios";
+import { useEffect } from "react";
 // import axios from "axios";
 // import { data } from "autoprefixer";
 
 
 export default function AddJob() {
+
+    useEffect(() => {
+        const routeName = location.pathname === '/AddJob' ? 'Add Job' : "";
+        
+        document.title = `Job Market X | ${routeName}`;
+        console.log(document.title)
+    }, [])
 
     const { user, loading, setLoading } = useAuth()
     const axios = useAxios();

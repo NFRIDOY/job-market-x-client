@@ -1,8 +1,16 @@
+import { useEffect } from "react";
 import MyBidsContainer from "../../components/MyBidsContainer/MyBidsContainer";
 
 
 
 export default function MyBids() {
+
+  useEffect(() => {
+    const routeName = location.pathname === '/MyBids' ? 'My Bids' : "";
+    
+    document.title = `Job Market X | ${routeName}`;
+    console.log(document.title)
+}, [])
 
   return (
     <div>
