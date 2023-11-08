@@ -1,20 +1,38 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
+import useAxios from "../../hooks/useAxios";
 
 
 export default function Login() {
 
+    const { user, setUser, signInEmailPass, googleSignIn } = useAuth()
+    const navigate = useNavigate()
+    const location = useLocation()
+    const axios = useAxios()
+
     useEffect(() => {
         const routeName = location.pathname === '/Login' ? 'Login' : "";
-        
+
         document.title = `Job Market X | ${routeName}`;
         console.log(document.title)
     }, [])
 
-    const { user, setUser, createUserEmailPass, signInEmailPass, googleSignIn } = useAuth()
-    const navigate = useNavigate()
+    // get Access Token
+    const getToken = () => {
+        // axios.post('http://localhost:5000/api/v1/jwt', user, {withCredentials: true} )
+        axios.post('/jwt', user )
+            .then(res => {
+                alert("Token")
+                console.log(res.data)
+                if (res.data?.message) {
+                    console.log("Success ::> True")
+                    toast.success("Success")
+                }
+            })
+    }
+
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -34,6 +52,7 @@ export default function Login() {
                 console.log(user)
                 // console.log(location.pathname)
                 console.log(location?.state)
+                getToken()
                 navigate(location?.state ? location?.state : '/')
             })
             .catch((error) => {
@@ -55,9 +74,10 @@ export default function Login() {
                 const user = result.user;
                 // IdP data available using getAdditionalUserInfo(result)
                 // ...
-                toast.success("User Login Using Google")
                 setUser(user)
                 console.log(user)
+                getToken()
+                toast.success("User Login Using Google")
                 // console.log(location.pathname)
                 console.log(location?.state)
                 navigate(location?.state ? location?.state : '/')
@@ -79,10 +99,10 @@ export default function Login() {
         <div>
             <section className="bg-white w-full dark:bg-gray-900">
                 <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-                    <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-                        {/* <img className="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo"/>
-                            Flowbite */}
-                    </a>
+                    {/* <a href="" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+                        <img className="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo"/>
+                            Flowbite
+                    </a> */}
                     <div className="w-full  rounded-lg shadow-2xl  dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                             <h1 className="text-center text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">

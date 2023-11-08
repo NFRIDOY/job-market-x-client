@@ -34,12 +34,14 @@ export default function AllJobs() {
     // if (error) return 'An error has occurred: ' + error.message
 
     return (
-        <div>
+        <div className="">
             {/* <h1 className="text-center text-xl">You Can See All Your Posted Jobs</h1> */}
-            <div className="grid grid-cols-1 md:grid-cols-3 md:grid-flow-row-dense md:gap-y-8 py-10">
-                {
-                    postedJobData?.map(postedJob => <JobCard key={postedJob._id} postedJob={postedJob}></JobCard>)
-                }
+            <div className="mx-auto ">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:grid-flow-row-dense gap-x-4 gap-y-8 py-10 ">
+                    {
+                        postedJobData?.map(postedJob => <JobCard key={postedJob._id} postedJob={postedJob}></JobCard>)
+                    }
+                </div>
             </div>
         </div>
     )
