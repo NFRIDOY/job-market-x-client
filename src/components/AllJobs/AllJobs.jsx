@@ -95,7 +95,7 @@ export default function AllJobs() {
         <div className="py-12">
             {/* <h1 className="text-center text-xl">You Can See All Your Posted Jobs</h1> */}
             <div className="mx-auto ">
-                <h1 className="text-6xl font-bold pb-8 text-center">Job Categories</h1>
+                <h1 className="text-6xl font-bold pb-8 text-center"><span className="text-warning">Job</span> Categories</h1>
                 <div className="">
                     <Tabs>
                         <TabList className={""}>
