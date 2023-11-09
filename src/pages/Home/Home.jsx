@@ -1,13 +1,14 @@
 import { useEffect } from "react";
 import AllJobs from "../../components/AllJobs/AllJobs";
 import Banner from "../../components/Banner/Banner";
+import TabContainer from "../../components/TabContainer/TabContainer";
 
 
 const Home = () => {
 
     useEffect(() => {
         const routeName = location.pathname === '/' ? 'Home' : "";
-        
+
         document.title = `Job Market X | ${routeName}`;
         console.log(document.title)
     }, [])
@@ -20,6 +21,9 @@ const Home = () => {
             <section >
                 <AllJobs></AllJobs>
             </section>
+            {/* <div>
+                <TabContainer></TabContainer>
+            </div> */}
         </div>
     );
 };
