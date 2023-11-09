@@ -67,71 +67,74 @@ export default function BidReqContainer() {
             {/* <h1>
                 BidReqContainer
             </h1> */}
-            <section id="BidReqTable">
-                <div className="overflow-x-auto">
-                    <table className="table table-xs">
-                        {/* T Head */}
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Job Title</th>
-                                <th>Email</th>
-                                <th>Deadline</th>
-                                <th>Price</th>
-                                <th>Status</th>
-                                <th className="col-span-2 text-right">Option</th>
-                                {/* <th>Accept</th>
+            {
+                bidReqJobs.length ? <section id="BidReqTable">
+                    <div className="overflow-x-auto">
+                        <table className="table table-xs">
+                            {/* T Head */}
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Job Title</th>
+                                    <th>Email</th>
+                                    <th>Deadline</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                    <th className="col-span-2 text-right">Option</th>
+                                    {/* <th>Accept</th>
                                 <th>Reject</th> */}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                bidReqJobs?.map((bidJob, index) => <tr key={bidJob?._id}>
-                                    <td>{index + 1}</td>
-                                    <th>{bidJob?.jobTitle}</th>
-                                    <td>{bidJob?.emailBidForm}</td>
-                                    <td>{bidJob?.deadline}</td>
-                                    <td>{bidJob?.priceForm}</td>
-                                    <td>{bidJob?.status}</td>
-                                    {
-                                        bidJob?.status !== "Complete" && <td>
-                                            <button className="btn btn-sm btn-success text-white"
-                                                onClick={() => handleAcceptBtn(bidJob._id)}>
-                                                Accept
-                                            </button>
-                                        </td>
-                                    }
-
-                                    {/* <td>{bidJob?.status === "progress" && <button onClick={handleAcceptBtn}>Accept</button></td> */}
-                                    {
-                                        bidJob?.status !== "Complete" && <td>
-                                            <button className="btn btn-sm btn-error text-white"
-                                                onClick={() => handleRejectBtn(bidJob._id)}>
-                                                Reject
-                                            </button></td>
-                                    }
-
-                                    {/* <td>{bidJob?.status === "progress" && <button onClick={handleRejectBtn}>Reject</button></td> */}
                                 </tr>
-                                )
-                            }
+                            </thead>
+                            <tbody>
+                                {
+                                    bidReqJobs?.map((bidJob, index) => <tr key={bidJob?._id}>
+                                        <td>{index + 1}</td>
+                                        <th>{bidJob?.jobTitle}</th>
+                                        <td>{bidJob?.emailBidForm}</td>
+                                        <td>{bidJob?.deadline}</td>
+                                        <td>{bidJob?.priceForm}</td>
+                                        <td>{bidJob?.status}</td>
+                                        {
+                                            bidJob?.status !== "Complete" && <td>
+                                                <button className="btn btn-sm btn-success text-white"
+                                                    onClick={() => handleAcceptBtn(bidJob._id)}>
+                                                    Accept
+                                                </button>
+                                            </td>
+                                        }
 
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th></th>
-                                <th>Job Title</th>
-                                <th>Email (owner)</th>
-                                <th>Deadline</th>
-                                <th>Price</th>
-                                <th>Status</th>
-                                {/* <th>Accept</th>
+                                        {/* <td>{bidJob?.status === "progress" && <button onClick={handleAcceptBtn}>Accept</button></td> */}
+                                        {
+                                            bidJob?.status !== "Complete" && <td>
+                                                <button className="btn btn-sm btn-error text-white"
+                                                    onClick={() => handleRejectBtn(bidJob._id)}>
+                                                    Reject
+                                                </button></td>
+                                        }
+
+                                        {/* <td>{bidJob?.status === "progress" && <button onClick={handleRejectBtn}>Reject</button></td> */}
+                                    </tr>
+                                    )
+                                }
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th></th>
+                                    <th>Job Title</th>
+                                    <th>Email (owner)</th>
+                                    <th>Deadline</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                    {/* <th>Accept</th>
                                 <th>Reject</th> */}
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-            </section>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </section> : <h1 className="text-5xl text-center">No Data Found!!!</h1>
+            }
+
         </div>
     )
 }

@@ -56,10 +56,10 @@ export default function MyBidsContainer() {
     return (
         <div>
             {/* <h1>My Bids Container</h1> */}
-            <section id="BidTable">
-                <div className="overflow-x-auto">
-                    {
-                        myBidJobs.length && <table className="table table-xs">
+            {
+                myBidJobs.length ? <section id="BidTable">
+                    <div className="overflow-x-auto">
+                        <table className="table table-xs">
                             {/* T Head */}
                             <thead>
                                 <tr>
@@ -122,9 +122,9 @@ export default function MyBidsContainer() {
                                 </tr>
                             </tfoot>
                         </table>
-                    }
-                </div>
-            </section>
+                    </div>
+                </section> : <h1 className="text-5xl text-center">No Data Found!!!</h1>
+            }
         </div>
     )
 }
