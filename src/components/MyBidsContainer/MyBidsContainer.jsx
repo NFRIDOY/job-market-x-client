@@ -85,6 +85,19 @@ export default function MyBidsContainer() {
                                                     className="btn btn-sm px- btn-success text-white"
                                                     onClick={() => handleComplete(bidJob._id)}>
                                                     Complete
+                                                </button> : <button
+                                                    disabled
+                                                    className="btn btn-sm btn-neutral">
+                                                    Uncomplete
+                                                </button>
+                                            }
+                                        </td>
+                                        {/* <td>
+                                            {
+                                                bidJob?.status === "In Progress" ? <button
+                                                    className="btn btn-sm px- btn-success text-white"
+                                                    onClick={() => handleComplete(bidJob._id)}>
+                                                    Complete
                                                 </button> : bidJob?.status === "Canceled" ? <button
                                                     // onClick={() => handleDelete(bidJob?._id)}
                                                 >Delete</button> :
@@ -92,7 +105,7 @@ export default function MyBidsContainer() {
                                                         Uncomplete
                                                     </button>
                                             }
-                                        </td>
+                                        </td> */}
                                     </tr>
                                     )
                                 }

@@ -78,7 +78,7 @@ export default function JobDetails() {
         // // Output
         console.log(newBid)
         // http://localhost:5000/api/v1/addJobs
-        axios.post("/myBids", newBid).then((res) => {
+        axios.post(`/myBids?email=${user}`, newBid).then((res) => {
             console.log(res.data);
             if (res.data.acknowledged) {
                 toast.success("Successfully Added!");

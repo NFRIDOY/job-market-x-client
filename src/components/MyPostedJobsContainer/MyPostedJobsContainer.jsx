@@ -33,7 +33,7 @@ export default function MyPostedJobsContainer() {
         //         swal("Deleted!", "Your imaginary file has been deleted.", "success");
         //     });
 
-        axios.delete(`/myPostedJobs/${id}`)
+        axios.delete(`/myPostedJobs/${id}?email=${user.email}`)
             .then((res) => {
                 console.log(res?.data)
                 console.log(myPostedJobs)
