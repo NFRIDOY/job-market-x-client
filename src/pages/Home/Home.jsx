@@ -24,6 +24,12 @@ const Home = () => {
             {/* <div>
                 <TabContainer></TabContainer>
             </div> */}
+            <section>
+                <h1>Why We Are Best</h1>
+                <p>
+                    
+                </p>
+            </section>
         </div>
     );
 };
