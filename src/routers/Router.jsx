@@ -28,12 +28,12 @@ const router = createBrowserRouter([
                 path: "/",
                 element: <Home></Home>,
                 errorElement: <Error></Error>,
-                children: [
-                    {
-                        path: "/",
-                        // element: 
-                    }
-                ]
+                // children: [
+                //     {
+                //         path: "/",
+                //         // element: 
+                //     }
+                // ]
             },
             {
                 path: "/Jobs/:id",

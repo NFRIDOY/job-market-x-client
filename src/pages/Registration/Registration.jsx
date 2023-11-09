@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
@@ -14,6 +14,7 @@ export default function Registration() {
 }, [])
 
   const { user, setUser, createUserEmailPass, updateUser, logOut } = useAuth()
+  const navigate = useNavigate()
 
   const handleReg = e => {
     e.preventDefault();
@@ -43,6 +44,7 @@ export default function Registration() {
             .then(() => {
                 // Sign-out successful.
                 toast.success("Sign-out successful.")
+                navigate("/Login")
             }).catch((error) => {
                 // An error happened.
                 toast.error("Sign-out Failes. Error")
