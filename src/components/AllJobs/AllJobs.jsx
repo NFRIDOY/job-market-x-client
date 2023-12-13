@@ -53,7 +53,7 @@ export default function AllJobs() {
             // axios.get(`/allJobs?email=${user.email}`).then(
             // axios.get(`/allJobs?cat=${}`).then(
             axios.get(`/allJobs`).then(
-                (res) => {
+                (res) => {+
                     console.log(res.data)
                     console.log(AllJobs)
                     setPostedJobData(res.data)

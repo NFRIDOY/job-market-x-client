@@ -79,19 +79,22 @@ export default function MyBidsContainer() {
                                         <td>{bidJob?.emailOwnerForm}</td>
                                         <td>{bidJob?.deadline}</td>
                                         <td>{bidJob?.status}</td>
-                                        <td>
-                                            {
-                                                bidJob?.status === "In Progress" ? <button
-                                                    className="btn btn-sm px- btn-success text-white"
-                                                    onClick={() => handleComplete(bidJob._id)}>
-                                                    Complete
-                                                </button> : <button
-                                                    disabled
-                                                    className="btn btn-sm btn-neutral">
-                                                    Uncomplete
-                                                </button>
-                                            }
-                                        </td>
+                                        {
+                                            (bidJob?.status !== "Complete") && <td>
+                                                {
+                                                    bidJob?.status === "In Progress" ? <button
+                                                        className="btn btn-sm px- btn-success text-white"
+                                                        onClick={() => handleComplete(bidJob._id)}>
+                                                        Complete
+                                                    </button> : <button
+                                                        disabled
+                                                        className="btn btn-sm btn-neutral">
+                                                        Uncomplete
+                                                    </button>
+                                                }
+
+                                            </td>
+                                        }
                                         {/* <td>
                                             {
                                                 bidJob?.status === "In Progress" ? <button
