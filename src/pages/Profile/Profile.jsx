@@ -26,7 +26,7 @@ export default function Profile() {
 
     return (
         <div className="pb-20">
-            <h1 className="text-7xl text-center py-10">My Profile</h1>
+            {/* <h1 className="text-7xl text-center py-10">My Profile</h1> */}
             <div className="flex">
                 <div className="w-1/2 flex justify-center items-center">
                     <div className="">

@@ -95,7 +95,7 @@ export default function AuthProvider({ children }) {
                 // toast.success(user.photoURL)
                 setUser(user)
                 toast.success("Profile updated!")
-                logOut()
+                // logOut()
 
 
             }).catch((error) => {
