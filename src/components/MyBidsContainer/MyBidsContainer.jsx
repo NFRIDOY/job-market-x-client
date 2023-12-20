@@ -34,6 +34,10 @@ export default function MyBidsContainer() {
 
     // }
 
+    const handleUnpaid = () => {
+        toast.success("Unpaid, request For Myment")
+    }
+
     const isReqTrue = 0;
 
     const { isPending, error, data: AllJobs } = useQuery({
@@ -80,7 +84,7 @@ export default function MyBidsContainer() {
                                         <td>{bidJob?.deadline}</td>
                                         <td>{bidJob?.status}</td>
                                         {
-                                            (bidJob?.status !== "Complete") && <td>
+                                            (bidJob?.status !== "Complete") ? <td>
                                                 {
                                                     bidJob?.status === "In Progress" ? <button
                                                         className="btn btn-sm px- btn-success text-white"
@@ -90,6 +94,23 @@ export default function MyBidsContainer() {
                                                         disabled
                                                         className="btn btn-sm btn-neutral">
                                                         Uncomplete
+                                                    </button>
+                                                }
+
+                                            </td> : <td>
+                                                {
+                                                    bidJob?.status === "Complete" ? <button
+                                                        className="btn btn-sm px- btn-success text-white"
+                                                        onClick={() => handleUnpaid(bidJob._id)}>
+                                                        Unpaid
+                                                    </button> : (bidJob?.status === "Paid") ? <button
+                                                        disabled
+                                                        className="btn btn-sm btn-neutral">
+                                                        Paid
+                                                    </button> : <button
+                                                        disabled
+                                                        className="btn btn-sm btn-neutral">
+                                                        You Have Issues
                                                     </button>
                                                 }
 
