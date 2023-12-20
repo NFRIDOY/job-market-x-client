@@ -58,7 +58,7 @@ export default function MyBidsContainer() {
     if (isPending) return <LoadingAnimations></LoadingAnimations>
 
     return (
-        <div>
+        <div className="my-2">
             {/* <h1>My Bids Container</h1> */}
             {
                 myBidJobs.length ? <section id="BidTable">
@@ -108,7 +108,7 @@ export default function MyBidsContainer() {
                                             </td> : <td>
                                                 {
                                                     bidJob?.status === "Complete" ? <button
-                                                        className="btn btn-sm px- btn-success text-white"
+                                                        className="btn btn-sm px- btn-error text-white"
                                                         onClick={() => handleUnpaid(bidJob._id)}>
                                                         Unpaid
                                                     </button> : (bidJob?.status === "Paid") ? <button

@@ -20,8 +20,8 @@ export default function MyPostedJobs() {
 
     return (
         <div>
-            <h1 className="text-center text-7xl py-10">My Posted Jobs</h1>
-            <h1 className="text-center text-xl">You Can See All Your Posted Jobs</h1>
+            {/* <h1 className="text-center text-7xl py-10">My Posted Jobs</h1> */}
+            {/* <h1 className="text-center text-xl">You Can See All Your Posted Jobs</h1> */}
             <div>
                 <MyPostedJobsContainer> </MyPostedJobsContainer>
             </div>

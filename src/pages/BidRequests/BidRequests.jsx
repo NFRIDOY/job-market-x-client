@@ -13,9 +13,9 @@ export default function BidRequests() {
 
     return (
         <div className="pb-12">
-            <h1 className="text-6xl font-bold    py-10 text-center">
+            {/* <h1 className="text-6xl font-bold    py-10 text-center">
                 Bid Requests For My Posted Jobs
-            </h1>
+            </h1> */}
             <BidReqContainer></BidReqContainer>
         </div>
     )

@@ -14,7 +14,7 @@ export default function MyBids() {
 
   return (
     <div className="pb-12">
-      <h1 className="text-6xl font-bold py-8 text-center">My Bids</h1>
+      {/* <h1 className="text-6xl font-bold py-8 text-center">My Bids</h1> */}
       <MyBidsContainer></MyBidsContainer>
     </div>
   )
