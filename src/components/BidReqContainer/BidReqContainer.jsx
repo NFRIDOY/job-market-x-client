@@ -62,7 +62,7 @@ export default function BidReqContainer() {
         // }
     }
 
-    const handlePayment= () => {
+    const handlePayment = () => {
         console.log("Payment")
         toast.success("Payment")
     }
@@ -100,13 +100,14 @@ export default function BidReqContainer() {
                                         <td>{bidJob?.priceForm}</td>
                                         <td>{bidJob?.status}</td>
                                         {
-                                            !(bidJob?.status !== "Complete") ? <td>
-                                                <button className="btn btn-sm btn-active text-white"
+                                            !(bidJob?.status !== "Complete") ? <td className="col-span-2">
+
+                                                <button className="btn btn-sm w-24 btn-warning text-white "
                                                     onClick={() => handlePayment(bidJob._id)}>
                                                     Payment
                                                 </button>
                                             </td> : <td>
-                                                <button className="btn btn-sm btn-success text-white"
+                                                <button className="btn btn-sm w-24 btn-success text-white"
                                                     onClick={() => handleAcceptBtn(bidJob._id)}>
                                                     Accept
                                                 </button>
@@ -115,11 +116,19 @@ export default function BidReqContainer() {
 
                                         {/* <td>{bidJob?.status === "progress" && <button onClick={handleAcceptBtn}>Accept</button></td> */}
                                         {
-                                            bidJob?.status !== "Complete" && <td>
-                                                <button className="btn btn-sm btn-error text-white"
+                                            !(bidJob?.status !== "Complete") ? <td className="col-span-2 mx-auto">
+
+                                                <button className="btn btn-sm w-24 btn-error text-white "
+                                                    onClick={() => handlePayment(bidJob._id)}>
+                                                    Complain
+                                                </button>
+                                            </td> : <td>
+                                                <button className="btn btn-sm w-24 btn-error text-white"
                                                     onClick={() => handleRejectBtn(bidJob._id)}>
                                                     Reject
-                                                </button></td>
+                                                </button>
+                                            </td>
+                                            
                                         }
 
                                         {/* <td>{bidJob?.status === "progress" && <button onClick={handleRejectBtn}>Reject</button></td> */}
