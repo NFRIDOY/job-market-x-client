@@ -247,6 +247,14 @@ export default function Navbar() {
                                         </Link>
 
                                     </li>
+                                    <li>
+                                        <Link to={'/dashbord'} className="justify-between">
+                                            Dashbord
+                                            {/* <span className="badge">New</span> */}
+
+                                        </Link>
+
+                                    </li>
 
 
                                     <li className="text-red-500 hover:text-red-700" title="Click To Logout">
