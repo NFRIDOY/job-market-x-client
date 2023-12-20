@@ -74,6 +74,7 @@ export default function JobCard({ postedJob }) {
                         <h5 className="block mb-2 font-sans text-2xl antialiased font-bold leading-snug tracking-normal text-blue-gray-900 capitalize">
                             {jobTitle}
                         </h5>
+
                         <h5>
                             {
                                 deadline && <span> <span className="font-bold">Deadline :</span>  <span className="font-bold text-red-500">{deadline}</span> </span>
@@ -85,6 +86,11 @@ export default function JobCard({ postedJob }) {
                         {description}
                     </p>
                 </div>
+                <h5 className="pb-5 text-gray-400">
+                    {
+                        deadline && <span> <span className="font-bold">Posted By:</span>  <span className="font-bold text-green-500">{email}</span> </span>
+                    }
+                </h5>
                 <div className="p-6 pt-0 flex justify-between items-center">
                     <h1 className="text-xl"><span className="font-bold text-accent ">
                         ৳<span>{minPrice}</span> - ৳<span>{maxPrice}</span></span>
@@ -96,6 +102,7 @@ export default function JobCard({ postedJob }) {
                     >
                         Bid Now
                     </Link>
+
                 </div>
             </div>
 
