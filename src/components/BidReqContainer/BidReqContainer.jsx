@@ -62,9 +62,18 @@ export default function BidReqContainer() {
         // }
     }
 
-    const handlePayment = () => {
+    const handlePayment = (id) => {
         console.log("Payment")
         toast.success("Payment")
+
+        console.log(id)
+        // setIsAccepted(!isAccepted)
+        axios.put(`/myBids/${id}`, { status: "Paid" })
+            .then(res => {
+                console.log(res.data)
+                toast.success("Payment Successful")
+                // setIsAccepted(!isAccepted)
+            })
     }
 
     return (
@@ -106,7 +115,7 @@ export default function BidReqContainer() {
                                                     onClick={() => handlePayment(bidJob._id)}>
                                                     Payment
                                                 </button>
-                                            </td> : <td>
+                                            </td> : (bidJob?.status !== "Paid") && <td>
                                                 <button className="btn btn-sm w-24 btn-success text-white"
                                                     onClick={() => handleAcceptBtn(bidJob._id)}>
                                                     Accept
@@ -122,13 +131,25 @@ export default function BidReqContainer() {
                                                     onClick={() => handlePayment(bidJob._id)}>
                                                     Complain
                                                 </button>
-                                            </td> : <td>
+                                            </td> : (bidJob?.status !== "Paid") && <td>
                                                 <button className="btn btn-sm w-24 btn-error text-white"
                                                     onClick={() => handleRejectBtn(bidJob._id)}>
                                                     Reject
                                                 </button>
                                             </td>
-                                            
+
+                                        }
+                                        {
+                                            !(bidJob?.status !== "Paid") ? <td className="col-span-2 mx-auto">
+
+                                                <button className="btn btn-sm w-24 btn-neutral text-white "
+                                                    onClick={() => handlePayment(bidJob._id)}>
+                                                    Paid
+                                                </button>
+                                            </td> : <td>
+
+                                            </td>
+
                                         }
 
                                         {/* <td>{bidJob?.status === "progress" && <button onClick={handleRejectBtn}>Reject</button></td> */}
