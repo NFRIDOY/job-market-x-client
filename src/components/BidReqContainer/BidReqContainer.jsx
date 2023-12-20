@@ -62,6 +62,11 @@ export default function BidReqContainer() {
         // }
     }
 
+    const handlePayment= () => {
+        console.log("Payment")
+        toast.success("Payment")
+    }
+
     return (
         <div>
             {/* <h1>
@@ -80,7 +85,7 @@ export default function BidReqContainer() {
                                     <th>Deadline</th>
                                     <th>Price</th>
                                     <th>Status</th>
-                                    <th className="col-span-2 text-right">Option</th>
+                                    <th className="col-span-2 text-center w-20">Option</th>
                                     {/* <th>Accept</th>
                                 <th>Reject</th> */}
                                 </tr>
@@ -95,7 +100,12 @@ export default function BidReqContainer() {
                                         <td>{bidJob?.priceForm}</td>
                                         <td>{bidJob?.status}</td>
                                         {
-                                            bidJob?.status !== "Complete" && <td>
+                                            !(bidJob?.status !== "Complete") ? <td>
+                                                <button className="btn btn-sm btn-active text-white"
+                                                    onClick={() => handlePayment(bidJob._id)}>
+                                                    Payment
+                                                </button>
+                                            </td> : <td>
                                                 <button className="btn btn-sm btn-success text-white"
                                                     onClick={() => handleAcceptBtn(bidJob._id)}>
                                                     Accept

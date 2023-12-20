@@ -2,8 +2,8 @@
 
 export default function Footer() {
     const copyRightYear = new Date();
-    console.log(copyRightYear.getFullYear());
-    console.log(copyRightYear.getMonth());
+    // console.log(copyRightYear.getFullYear());
+    // console.log(copyRightYear.getMonth());
     return (
         <div className="bg-neutral">
             <footer className="footer p-10 text-neutral-content max-w-7xl mx-auto flex justify-between">
