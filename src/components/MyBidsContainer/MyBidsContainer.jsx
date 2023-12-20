@@ -87,20 +87,20 @@ export default function MyBidsContainer() {
                                             (bidJob?.status !== "Complete") ? <td>
                                                 {
                                                     bidJob?.status === "In Progress" ? <button
-                                                        className="btn btn-sm px- btn-success text-white"
+                                                        className="btn btn-sm px- btn-success text-white w-9/12"
                                                         onClick={() => handleComplete(bidJob._id)}>
                                                         Complete
                                                     </button> : (bidJob?.status === "Paid") ? <button
                                                         disabled
-                                                        className="btn btn-sm btn-neutral">
+                                                        className="btn btn-sm btn-neutral w-9/12">
                                                         Paid
                                                     </button> : (bidJob?.status === "Pending") ? <button
                                                         disabled
-                                                        className="btn btn-sm btn-neutral">
+                                                        className="btn btn-sm btn-neutral w-9/12">
                                                         Wait For Accept
                                                     </button> : <button
                                                         disabled
-                                                        className="btn btn-sm btn-neutral">
+                                                        className="btn btn-sm btn-neutral w-9/12">
                                                         Uncomplete
                                                     </button>
                                                 }
@@ -108,16 +108,16 @@ export default function MyBidsContainer() {
                                             </td> : <td>
                                                 {
                                                     bidJob?.status === "Complete" ? <button
-                                                        className="btn btn-sm px- btn-error text-white"
+                                                        className="btn btn-sm px- btn-error text-white w-9/12"
                                                         onClick={() => handleUnpaid(bidJob._id)}>
                                                         Unpaid
                                                     </button> : (bidJob?.status === "Paid") ? <button
                                                         disabled
-                                                        className="btn btn-sm btn-neutral">
+                                                        className="btn btn-sm btn-neutral w-9/12">
                                                         Paid
                                                     </button> : <button
                                                         disabled
-                                                        className="btn btn-sm btn-neutral">
+                                                        className="btn btn-sm btn-neutral w-9/12">
                                                         You Have Issues
                                                     </button>
                                                 }
