@@ -75,6 +75,18 @@ export default function BidReqContainer() {
                 // setIsAccepted(!isAccepted)
             })
     }
+    const handleComplain = (id) => {
+        toast.success("Complained")
+
+        console.log(id)
+        // setIsAccepted(!isAccepted)
+        axios.put(`/myBids/${id}`, { status: "Complained" })
+            .then(res => {
+                console.log(res.data)
+                toast.success("Payment Successful")
+                // setIsAccepted(!isAccepted)
+            })
+    }
 
     return (
         <div>
@@ -128,7 +140,7 @@ export default function BidReqContainer() {
                                             !(bidJob?.status !== "Complete") ? <td className="col-span-2 mx-auto">
 
                                                 <button className="btn btn-sm w-24 btn-error text-white "
-                                                    onClick={() => handlePayment(bidJob._id)}>
+                                                    onClick={() => handleComplain(bidJob._id)}>
                                                     Complain
                                                 </button>
                                             </td> : (bidJob?.status !== "Paid") && <td>

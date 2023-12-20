@@ -35,7 +35,7 @@ export default function MyBidsContainer() {
     // }
 
     const handleUnpaid = () => {
-        toast.success("Unpaid, request For Myment")
+        toast.success("Unpaid, request For Pyment")
     }
 
     const isReqTrue = 0;
@@ -90,6 +90,14 @@ export default function MyBidsContainer() {
                                                         className="btn btn-sm px- btn-success text-white"
                                                         onClick={() => handleComplete(bidJob._id)}>
                                                         Complete
+                                                    </button> : (bidJob?.status === "Paid") ? <button
+                                                        disabled
+                                                        className="btn btn-sm btn-neutral">
+                                                        Paid
+                                                    </button> : (bidJob?.status === "Pending") ? <button
+                                                        disabled
+                                                        className="btn btn-sm btn-neutral">
+                                                        Wait For Accept
                                                     </button> : <button
                                                         disabled
                                                         className="btn btn-sm btn-neutral">
