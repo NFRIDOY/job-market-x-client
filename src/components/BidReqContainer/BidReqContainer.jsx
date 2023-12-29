@@ -11,13 +11,17 @@ export default function BidReqContainer() {
     // const [isStatusChanged, setIsStatusChanged] = useState("")
     const [isAccepted, setIsAccepted] = useState(false)
     const [isRejected, setIsRejected] = useState(false)
+    
+    const [isPayment, setIsPayment] = useState(false)
+    const [isComplain, setIsComplain] = useState(false)
+
     const axios = useAxios()
     const { user } = useAuth()
 
     const isReqTrue = 1;
 
     const { isPending, error, data: AllJobs } = useQuery({
-        queryKey: ['MyBids', user, isAccepted, isRejected],
+        queryKey: ['MyBids', user, isAccepted, isRejected, isPayment, isComplain ],
         queryFn: () =>
             // axios.get(`/allJobs`).then(
             axios.get(`/myBids?email=${user.email}&isReq=${isReqTrue}`).then(
@@ -68,24 +72,26 @@ export default function BidReqContainer() {
         toast.success("Payment")
 
         console.log(id)
-        // setIsAccepted(!isAccepted)
+        setIsComplain(false)
         axios.put(`/myBids/${id}`, { status: "Paid" })
             .then(res => {
                 console.log(res.data)
                 toast.success("Payment Successful")
-                // setIsAccepted(!isAccepted)
+                setIsPayment(!isPayment)
+                setIsComplain(false)
             })
     }
     const handleComplain = (id) => {
         toast.success("Complained")
 
         console.log(id)
-        // setIsAccepted(!isAccepted)
+        setIsPayment(false)
         axios.put(`/myBids/${id}`, { status: "Complained" })
             .then(res => {
                 console.log(res.data)
                 toast.success("Payment Successful")
-                // setIsAccepted(!isAccepted)
+                setIsComplain(!isComplain)
+                setIsPayment(false)
             })
     }
 
