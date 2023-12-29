@@ -57,6 +57,9 @@ export default function MyBidsContainer() {
     // 'Loading...'
     if (isPending) return <LoadingAnimations></LoadingAnimations>
 
+    const today = new Date();
+    console.log(today);
+
     return (
         <div className="my-2">
             {/* <h1>My Bids Container</h1> */}
@@ -81,7 +84,20 @@ export default function MyBidsContainer() {
                                         <td>{index + 1}</td>
                                         <th>{bidJob?.jobTitle}</th>
                                         <td>{bidJob?.emailOwnerForm}</td>
-                                        <td>{bidJob?.deadline}</td>
+                                        <td>
+                                            {
+                                                bidJob?.deadline
+                                            //     new Date(bidJob?.deadline) 
+                                            
+
+                                            //     specificDate < today ? <span>
+
+                                            // </span> :  <span>
+
+                                            // </span>
+
+                                            }
+                                        </td>
                                         <td>{bidJob?.status}</td>
                                         {
                                             (bidJob?.status !== "Complete") ? <td>
@@ -143,7 +159,7 @@ export default function MyBidsContainer() {
                                 }
 
                             </tbody>
-                            <tfoot>
+                            {/* <tfoot>
                                 <tr>
                                     <th></th>
                                     <th>Job Title</th>
@@ -152,7 +168,7 @@ export default function MyBidsContainer() {
                                     <th>Status</th>
                                     <th>Option</th>
                                 </tr>
-                            </tfoot>
+                            </tfoot> */}
                         </table>
                     </div>
                 </section> : <h1 className="text-5xl text-center">No Data Found!!!</h1>
