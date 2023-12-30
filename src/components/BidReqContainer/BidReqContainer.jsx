@@ -5,6 +5,8 @@ import { useQuery } from "@tanstack/react-query"
 import LoadingAnimations from "../LoadingAnimations/LoadingAnimations"
 import toast from "react-hot-toast"
 import BidReqTr from '../BidReqTr/BidReqTr';
+import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function BidReqContainer() {
     const [bidReqJobs, setBidReqJobs] = useState([])
@@ -14,6 +16,8 @@ export default function BidReqContainer() {
     
     const [isPayment, setIsPayment] = useState(false)
     const [isComplain, setIsComplain] = useState(false)
+
+    const navigate = useNavigate()
 
     const axios = useAxios()
     const { user } = useAuth()
@@ -68,18 +72,19 @@ export default function BidReqContainer() {
     }
 
     const handlePayment = (id) => {
+        navigate("/payment")
         console.log("Payment")
         toast.success("Payment")
 
-        console.log(id)
-        setIsComplain(false)
-        axios.put(`/myBids/${id}`, { status: "Paid" })
-            .then(res => {
-                console.log(res.data)
-                toast.success("Payment Successful")
-                setIsPayment(!isPayment)
-                setIsComplain(false)
-            })
+        // console.log(id)
+        // setIsComplain(false)
+        // axios.put(`/myBids/${id}`, { status: "Paid" })
+        //     .then(res => {
+        //         console.log(res.data)
+        //         toast.success("Payment Successful")
+        //         setIsPayment(!isPayment)
+        //         setIsComplain(false)
+        //     })
     }
     const handleComplain = (id) => {
         toast.success("Complained")

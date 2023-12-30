@@ -16,6 +16,7 @@ import useAxios from "../hooks/useAxios";
 import JobDetails from "../components/JobDetails/JobDetails";
 import Profile from "../pages/Profile/Profile";
 import Error from "../components/Error/Error";
+import Payment from "../pages/Payment/Payment";
 
 // const axios = useAxios()
 const router = createBrowserRouter([
@@ -82,6 +83,11 @@ const router = createBrowserRouter([
             {
                 path: "/profile",
                 element: <PrivateRoute><Profile></Profile></PrivateRoute>,
+                errorElement: <Error></Error>,
+            },
+            {
+                path: "/payment",
+                element: <PrivateRoute><Payment></Payment></PrivateRoute>,
                 errorElement: <Error></Error>,
             },
 
