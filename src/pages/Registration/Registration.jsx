@@ -40,16 +40,6 @@ export default function Registration() {
         toast.success("User Created")
         // console.log(user)
         updateUser(name, photoURL)
-        logOut()
-            .then(() => {
-                // Sign-out successful.
-                toast.success("Sign-out successful.")
-                navigate("/Login")
-            }).catch((error) => {
-                // An error happened.
-                toast.error("Sign-out Failes. Error")
-                console.log(error)
-            });
         
       })
       .catch((error) => {
