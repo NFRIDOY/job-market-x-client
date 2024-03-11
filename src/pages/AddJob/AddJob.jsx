@@ -37,7 +37,7 @@ export default function AddJob() {
             description,
             category,
             minPrice,
-            maxPrice
+            maxPrice,
         }
         // Output
         console.log(newJob)
