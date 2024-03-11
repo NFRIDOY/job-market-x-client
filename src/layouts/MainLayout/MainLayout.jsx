@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import MinHeight from "../../components/Containers/MinHeight";
 
 
 export default function MainLayout() {
@@ -9,7 +10,9 @@ export default function MainLayout() {
             <div className="mx-auto max-w-7xl">
 
                 <Navbar></Navbar>
-                <Outlet></Outlet>
+                <MinHeight>
+                    <Outlet></Outlet>
+                </MinHeight>
             </div>
             <div className="relative bottom-0">
                 <Footer></Footer>

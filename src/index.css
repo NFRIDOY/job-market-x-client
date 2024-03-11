@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.active-btn {
+  @apply bg-blue-600
+}
+
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

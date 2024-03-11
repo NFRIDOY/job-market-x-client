@@ -129,7 +129,7 @@ export default function Navbar() {
                             <NavLink
                                 to="/"
                                 className={({ isActive, isPending }) =>
-                                    isPending ? "pending" : isActive ? "active" : ""
+                                    isPending ? "pending" : isActive ? "active active-btn" : ""
                                 }
                             >
                                 Home
@@ -248,7 +248,7 @@ export default function Navbar() {
 
                                     </li>
                                     <li>
-                                        <Link to={'/dashbord'} className="justify-between">
+                                        <Link to={'/MyBids'} className="justify-between">
                                             Dashbord
                                             {/* <span className="badge">New</span> */}
 
