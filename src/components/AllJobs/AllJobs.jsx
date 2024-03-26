@@ -95,26 +95,27 @@ export default function AllJobs() {
         <div className="py-12">
             {/* <h1 className="text-center text-xl">You Can See All Your Posted Jobs</h1> */}
             <div className="mx-auto ">
-                <h1 className="text-6xl font-bold pb-8 text-center"><span className="text-warning">Job</span> Categories</h1>
+                <h1 className="text-6xl font-bold pb-8 text-center">
+                    <span className="text-warning">Job</span> Categories</h1>
                 <div className="">
                     <Tabs>
                         <TabList className={""}>
-                            <div className="flex mx-auto w-[500px] justify-between gap-x-6">
-                                <Tab className={"cursor-pointer px-9 border-2 bg-base-200 text-center rounded-full"} onClick={() => setCat("Web Development")}>Web Development</Tab>
-                                <Tab className={"cursor-pointer px-9 border-2 bg-base-200 text-center rounded-full"} onClick={() => setCat("Digital Marketing")}>Digital Marketing</Tab>
-                                <Tab className={"cursor-pointer px-9 border-2 bg-base-200 text-center rounded-full"} onClick={() => setCat("Graphics Design")}>Graphics Design</Tab>
+                            <div className="flex flex-col md:flex-row mx-auto w-1/2 lg:w-[500px] lg:justify-between gap-x-0 lg:gap-x-6 gap-y-2">
+                                <Tab className={"cursor-pointer px-3 lg:px-9 border-2 bg-base-200 text-center rounded-full "} onClick={() => setCat("Web Development")}>Web Development</Tab>
+                                <Tab className={"cursor-pointer px-3 lg:px-9 border-2 bg-base-200 text-center rounded-full "} onClick={() => setCat("Digital Marketing")}>Digital Marketing</Tab>
+                                <Tab className={"cursor-pointer px-3 lg:px-9 border-2 bg-base-200 text-center rounded-full "} onClick={() => setCat("Graphics Design")}>Graphics Design</Tab>
                                 {/* <Tab className={"cursor-pointer px-9 border-2 bg-base-200 text-center"} onClick={() => handleWebDev("Web Development")}>Web Development</Tab> */}
                                 {/* <Tab className={"cursor-pointer px-9 border-2 bg-base-200 text-center"} onClick={() => handleWebDev("Digital Marketing")}>Digital Marketing</Tab> */}
                                 {/* <Tab className={"cursor-pointer px-9 border-2 bg-base-200 text-center"} onClick={() => handleWebDev("Graphics Design")}>Graphics Design</Tab> */}
                             </div>
                         </TabList>
 
-                        <div className="text-center">
+                        <div className="text-center w-fit mx-auto">
                             <TabPanel >
                                 <div>
                                     {() => setCat("Web Development")}
                                     {/* Any content 1 */}
-                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:grid-flow-row-dense gap-x-4 gap-y-8 py-10 ">
+                                    <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 md:grid-flow-row-dense gap-x-4 gap-y-8 py-10 ">
                                         {
                                             postedJobDataWeb?.map(postedJob => <JobCard key={postedJob._id} postedJob={postedJob}></JobCard>)
                                         }
