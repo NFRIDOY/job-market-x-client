@@ -37,14 +37,7 @@ export default function AllJobs() {
     //     setPostedJobDataWeb(catData)
     // }
 
-    useEffect(() => {
-        console.log("UseEffect C")
-        // handleWebDev()
-        // setCat(catagory)
-        console.log(cat)
-        const catData = postedJobData.filter(job => job.category === cat)
-        setPostedJobDataWeb(catData)
-    }, [cat])
+
 
     const { isPending, error, data: AllJobs } = useQuery({
         queryKey: ['AllJobs'],
@@ -57,13 +50,30 @@ export default function AllJobs() {
                     console.log(res.data)
                     console.log(AllJobs)
                     setPostedJobData(res.data)
-                    // const initData = postedJobData.filter(job => job.category === "Web Development")
-                    // setPostedJobDataWeb(initData)
+                    const initData = postedJobData.filter(job => job.category === "Web Development")
+                    setPostedJobDataWeb(initData)
                     // handleWebDev()
                 },
 
             ),
     })
+    useEffect(() => {
+        console.log("UseEffect C")
+        // handleWebDev()
+        // setCat(catagory)
+        console.log(cat)
+
+        let catData;
+        // const catData = postedJobData.filter(job => job.category === (cat === "" ? "Web Development" : cat))
+        if (cat.length === 0) {
+            console.log("cat = ",cat === "");
+            catData = postedJobData.filter(job => job.category === "Web Development")
+        }
+        else {
+            catData = postedJobData.filter(job => job.category === cat)
+        }
+        setPostedJobDataWeb(catData)
+    }, [cat])
 
     // useEffect(() => {
     //     axios.get(`/allJobs?cat=${cat}`).then(
@@ -96,14 +106,27 @@ export default function AllJobs() {
             {/* <h1 className="text-center text-xl">You Can See All Your Posted Jobs</h1> */}
             <div className="mx-auto ">
                 <h1 className="text-6xl font-bold pb-8 text-center">
-                    <span className="text-warning">Job</span> Categories</h1>
+                    {/* <span className="text-warning">Job</span> Categories</h1> */}
+                    <span className="text-warning">All</span> Jobs</h1>
                 <div className="">
                     <Tabs>
                         <TabList className={""}>
                             <div className="flex flex-col md:flex-row mx-auto w-1/2 lg:w-[500px] lg:justify-between gap-x-0 lg:gap-x-6 gap-y-2">
-                                <Tab className={"cursor-pointer px-3 lg:px-9 border-2 bg-base-200 text-center rounded-full "} onClick={() => setCat("Web Development")}>Web Development</Tab>
-                                <Tab className={"cursor-pointer px-3 lg:px-9 border-2 bg-base-200 text-center rounded-full "} onClick={() => setCat("Digital Marketing")}>Digital Marketing</Tab>
-                                <Tab className={"cursor-pointer px-3 lg:px-9 border-2 bg-base-200 text-center rounded-full "} onClick={() => setCat("Graphics Design")}>Graphics Design</Tab>
+                                <Tab
+                                    className={"cursor-pointer px-3 lg:px-9 border-2 bg-base-200 text-center rounded-full "}
+                                    onClick={() => setCat("Web Development")}>
+                                    Web Development
+                                </Tab>
+                                <Tab
+                                    className={"cursor-pointer px-3 lg:px-9 border-2 bg-base-200 text-center rounded-full "}
+                                    onClick={() => setCat("Digital Marketing")}>
+                                    Digital Marketing
+                                </Tab>
+                                <Tab
+                                    className={"cursor-pointer px-3 lg:px-9 border-2 bg-base-200 text-center rounded-full "}
+                                    onClick={() => setCat("Graphics Design")}>
+                                    Graphics Design
+                                </Tab>
                                 {/* <Tab className={"cursor-pointer px-9 border-2 bg-base-200 text-center"} onClick={() => handleWebDev("Web Development")}>Web Development</Tab> */}
                                 {/* <Tab className={"cursor-pointer px-9 border-2 bg-base-200 text-center"} onClick={() => handleWebDev("Digital Marketing")}>Digital Marketing</Tab> */}
                                 {/* <Tab className={"cursor-pointer px-9 border-2 bg-base-200 text-center"} onClick={() => handleWebDev("Graphics Design")}>Graphics Design</Tab> */}
