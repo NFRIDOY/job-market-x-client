@@ -88,7 +88,7 @@ export default function JobCard({ postedJob }) {
                 </div>
                 <h5 className="pb-5 text-gray-400">
                     {
-                        deadline && <span> <span className="font-bold">Posted By:</span>  <span className="font-bold text-green-500">{email}</span> </span>
+                        deadline && <span> <span className="font-bold ml-5">Posted By:</span>  <span className="font-bold text-green-500">{email}</span> </span>
                     }
                 </h5>
                 <div className="p-6 pt-0 flex justify-between items-center">

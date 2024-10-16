@@ -66,7 +66,7 @@ export default function AllJobs() {
         let catData;
         // const catData = postedJobData.filter(job => job.category === (cat === "" ? "Web Development" : cat))
         if (cat.length === 0) {
-            console.log("cat = ",cat === "");
+            console.log("cat = ", cat === "");
             catData = postedJobData.filter(job => job.category === "Web Development")
         }
         else {
@@ -108,9 +108,10 @@ export default function AllJobs() {
                 <h1 className="text-6xl font-bold pb-8 text-center">
                     {/* <span className="text-warning">Job</span> Categories</h1> */}
                     <span className="text-warning">All</span> Jobs</h1>
-                <div className="">
+                {/* <div className="">
                     <Tabs>
                         <TabList className={""}>
+                            
                             <div className="flex flex-col md:flex-row mx-auto w-1/2 lg:w-[500px] lg:justify-between gap-x-0 lg:gap-x-6 gap-y-2">
                                 <Tab
                                     className={"cursor-pointer px-3 lg:px-9 border-2 bg-base-200 text-center rounded-full "}
@@ -127,9 +128,6 @@ export default function AllJobs() {
                                     onClick={() => setCat("Graphics Design")}>
                                     Graphics Design
                                 </Tab>
-                                {/* <Tab className={"cursor-pointer px-9 border-2 bg-base-200 text-center"} onClick={() => handleWebDev("Web Development")}>Web Development</Tab> */}
-                                {/* <Tab className={"cursor-pointer px-9 border-2 bg-base-200 text-center"} onClick={() => handleWebDev("Digital Marketing")}>Digital Marketing</Tab> */}
-                                {/* <Tab className={"cursor-pointer px-9 border-2 bg-base-200 text-center"} onClick={() => handleWebDev("Graphics Design")}>Graphics Design</Tab> */}
                             </div>
                         </TabList>
 
@@ -137,7 +135,6 @@ export default function AllJobs() {
                             <TabPanel >
                                 <div>
                                     {() => setCat("Web Development")}
-                                    {/* Any content 1 */}
                                     <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 md:grid-flow-row-dense gap-x-4 gap-y-8 py-10 ">
                                         {
                                             postedJobDataWeb?.map(postedJob => <JobCard key={postedJob._id} postedJob={postedJob}></JobCard>)
@@ -147,7 +144,6 @@ export default function AllJobs() {
                             </TabPanel>
                             <TabPanel>
                                 <div>
-                                    {/* Any content 2 */}
                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:grid-flow-row-dense gap-x-4 gap-y-8 py-10 ">
                                         {
                                             postedJobDataWeb?.map(postedJob => <JobCard key={postedJob._id} postedJob={postedJob}></JobCard>)
@@ -157,7 +153,6 @@ export default function AllJobs() {
                             </TabPanel>
                             <TabPanel>
                                 <div>
-                                    {/* Any content 3 */}
                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:grid-flow-row-dense gap-x-4 gap-y-8 py-10 ">
                                         {
                                             postedJobDataWeb?.map(postedJob => <JobCard key={postedJob._id} postedJob={postedJob}></JobCard>)
@@ -167,7 +162,7 @@ export default function AllJobs() {
                             </TabPanel>
                         </div>
                     </Tabs>
-                </div>
+                </div> */}
                 {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:grid-flow-row-dense gap-x-4 gap-y-8 py-10 ">
                     {
 
@@ -182,6 +177,11 @@ export default function AllJobs() {
                         postedJobData?.map(postedJob => <JobCard key={postedJob._id} postedJob={postedJob}></JobCard>)
                     }
                 </div> */}
+                <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 md:grid-flow-row-dense gap-x-4 gap-y-8 py-10 ">
+                    {
+                        postedJobData?.map(postedJob => <JobCard key={postedJob._id} postedJob={postedJob}></JobCard>)
+                    }
+                </div>
             </div>
         </div>
     )
